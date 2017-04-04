@@ -1,0 +1,150 @@
+
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+
+<!--*********SUB MENU************-->
+<submenu></submenu>
+
+
+ <!-- **********FORM****************** -->
+ <section class="md-profileeditform">
+	<div class="container md-box">
+		<div class="row">
+		<form name="addMemberForm" novalidate="" ng-submit="submitted=true;addMemberForm.$valid && addfamember(addmember)">
+	        <div class="col s12 m12 l12 ">
+	        <div class="input-field col s12 m6">
+	        	<input type="file" file-upload my-upload>
+	        	<span class="star">Note: Image uploads are limited to 10MB</span>
+	        	<span class="star">{{errormsg}}</span>
+	        	</div>
+	        	<div class="input-field col s12 m6">
+		          <input  id="first_name" type="text" name="name" ng-model="addmember.name" class="validate" required="" ng-maxlength="256" >
+		          <!-- ng-minlength="3" -->
+		          <label for="first_name">First Name</label>
+		          <span class="star" ng-show="submitted && addMemberForm.name.$error.required">Required</span>
+		         <!--  <span class="star" ng-show="addMemberForm.name.$error.minlength">Should Contain Atleast 3 Characters.</span> -->
+		          <span ng-show="addMemberForm.name.$error.maxlength && !addMemberForm.name.$focused" class="star">Allows maximum 256 Characters.</span>
+		        </div>
+		        <div class="input-field col s6">
+		          <select class="browser-default" name="relation" ng-model="addmember.relation" required="">
+
+					    <option value=""  selected>Relation</option>
+					    <option value="father">Father</option>
+					    <option value="mother">mother</option>
+					    <option value="brother">brother</option>
+					    <option value="sister">sister</option>
+					    <option value="husband">husband</option>
+					    <option value="wife">wife</option>
+					    <option value="son">son</option>
+					    <option value="daughter">daughter</option>
+					    <option value="father-in-law">father-in-law</option>
+					    <option value="mother-in-law">mother-in-law</option>
+					    <option value="son-in-law">son-in-law</option>
+					     <option value="daughter-in-law">daughter-in-law</option>
+					      <option value="uncle">uncle</option>
+					       <option value="aunt">aunt</option>
+					        <option value="cousin">cousin</option>
+					         <option value="friend">friend</option>
+					          <option value="other">other</option>
+					  </select>
+					  <span ng-show="submitted && addMemberForm.relation.$error.required">Required</span>
+		        </div>
+		        <div class="input-field col s6">
+		          <input id="email" name="email" type="email" ng-model="addmember.email" class="validate">
+		          <label for="email">Email</label>
+		          	 <p ng-show="addMemberForm.email.$error.email && (addMemberForm.email.$dirty)" class="star">Enter a valid email.</p> 
+		        </div>
+		        <div class="input-field col s6">
+		          <input id="number" type="text" name="phone_num" ng-model="addmember.mobileNumber" class="validate"  ng-pattern="/^[0-9,]{1,10}$/" maxlength="10" minlength="10">
+		          <label for="number">Mobile Number</label>
+		         
+                   			 <p class="star" ng-show="addMemberForm.phone_num.$error.pattern  && (addMemberForm.phone_num.$dirty)" class="help-block star-required">Enter a valid phone number.</p>
+                   			  <p class="star" ng-show="addMemberForm.phone_num.$error.minlength  && (addMemberForm.phone_num.$dirty)" class="help-block star-required">Minimum 10 numbers</p>
+		        </div>
+		         <div class="input-field col s6">
+		         	<input type="text" ng-model="addmember.birthday" id="date" formatted-date>
+		         	 <label for="date">DOB</label>
+		        </div>
+		          <div class="input-field col s6">
+		          <div class="mdflft"><p>Gender</p></div>
+		          <div>
+				      <input class="with-gap" ng-model="addmember.gender" name="group1" value="female" type="radio" id="test3"  />
+				      <label for="test3">Female</label>
+				      <input class="with-gap" ng-model="addmember.gender" name="group1" value="male" type="radio" id="test2"  />
+				      <label for="test2">Male</label>
+				      <input class="with-gap" ng-model="addmember.gender" name="group1" value="other" type="radio" id="test1"  />
+				      <label for="test1">Other</label>
+				   </div>
+			    </div>
+
+			    <div class="input-field col s6">
+		        <div class="mdflft"><p>Marital Status</p></div>
+				      <input class="with-gap" ng-model="addmember.maritalStatus" name="group7" type="radio" value="married" id="testm"  />
+				      <label for="testm">Married</label>
+				      <input class="with-gap" ng-model="addmember.maritalStatus" name="group7" type="radio" value="single" id="testsi"  />
+				      <label for="testsi">Single</label>
+			    </div>
+			      <div class="input-field col s6">
+			          <input id="height" type="text" name="heightg" ng-model="addmember.height"  ng-pattern="/^[0-9.]*$/" class="validate">
+			            <span class="star" ng-show="addMemberForm.heightg.$error.pattern">Enter valid Height</span>
+			          <label for="height">Height</label>
+		        </div>
+		         <div class="input-field col s6">
+			          <input id="width" type="text" name="weightd" ng-model="addmember.weight"  ng-pattern="/^[0-9.]*$/" class="validate">
+			          <label for="width">Weight</label>
+			           <span class="star" ng-show="addMemberForm.weightd.$error.pattern">Enter valid Weight</span>
+		        </div>
+		         <div class="input-field col s6">
+			          <input id="Diet" type="text" name="diet" maximum-words-validation="20" class="validate" ng-model="addmember.diet">
+			          <label for="Diet">Diet</label>
+			          	<span class="star" ng-show="addMemberForm.diet.$invalid">Allows to enter 20 words</span>
+		        </div>
+		        <div class="input-field col s6">
+			          <input id="foodallergies" name="foodallergies" maximum-words-validation="20" ng-model="addmember.foodAllergies" type="text" class="validate">
+			          <label for="foodallergies">Food Allergies</label>
+			           <span class="star" ng-show="addMemberForm.foodallergies.$invalid">Allows to enter 20 words</span>
+		        </div>
+		         <div class="input-field col s12">
+			          <input id="medicalallergies" name="medical" maximum-words-validation="20" ng-model="addmember.medicalAllergies" type="text" class="validate">
+			          <label for="medicalallergies">Medical Allergies</label>
+			           <span class="star" ng-show="addMemberForm.medical.$invalid">Allows to enter 20 words</span>
+		        </div>
+		         <div class="input-field col s6">
+		        	<div class="mdflft"><p>Asthma</p></div>
+				      <input class="with-gap" name="group8" ng-model="addmember.asthma" type="radio" id="test5"  />
+				      <label for="test5">yes</label>
+				      <input class="with-gap" name="group8" ng-model="addmember.asthma" type="radio" id="test6"  />
+				      <label for="test6">No</label>
+			    </div>
+			     <div class="input-field col s6">
+		        	<div class="mdflft"><p>Diabetes</p></div>
+				      <input class="with-gap" name="group9" ng-model="addmember.diabetes" type="radio" id="test7"  />
+				      <label for="test7">yes</label>
+				      <input class="with-gap" name="group9" ng-model="addmember.diabetes" type="radio" id="test8"  />
+				      <label for="test8">No</label>
+			    </div>
+	        </div>
+	         <div class="col s12 m12 l12 ">
+	          <button type="submit" class="waves-effect waves-light btn md-reqbtn greenaccpt right mt20">Add Member</button>
+	         </div>
+	     </form>   
+	     </div>
+	 </div>
+</section>
+        
+
+<!--*********PROFILE SECTION************-->
+<footer></footer>
+
+<script type="text/javascript">
+    $('.fixed-action-btn').openFAB();
+  $('.fixed-action-btn').closeFAB();   
+ $("#date").datepicker({
+        dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+        changeYear: true,
+          maxDate: new Date(),
+        yearRange: '1950:+0',
+        defaultDate: new Date()
+    });
+</script>

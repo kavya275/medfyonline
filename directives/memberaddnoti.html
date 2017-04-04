@@ -1,0 +1,34 @@
+         <div class="col s12 m12 l12"  >
+			        <div class="md-whiteframe-2dp">
+			        	<div class="notification-date ">
+			                {{memberdata.createdTimestamp  | date : format : timezone}}
+			            </div>
+			            <!-- {{memberdata}} -->
+			            <div class="row rw-btm">
+				            <div class="col s12 m12 l12">
+				            	<p class="md-notificationtxt md-notif">{{memberdata.message}}</p>
+					            <div class="md-borderbt">
+					            </div>
+					            <div ng-if="memberdata.type=='newRecord'">
+					            		<!-- <div class="md-acceptbtn cursorpntr"  ng-click="notifinewrequest(memberdata.constructiveAction,memberdata._id,indexval)"><i class="fa fa-eye" aria-hidden="true" ></i></div> -->
+					            		  <div class="col s6 l6 m6 cursorpntr" >
+					            	<div class="md-acceptbtn " ng-click="notifirequest(memberdata.constructiveAction,memberdata._id,memberdata.type)"><i class="fa fa-check" aria-hidden="true"></i></div>
+					            </div>
+					            
+					             <div class="col s6 l6 m6 cursorpntr" confirmed-click="deletesinglenoti(memberdata._id)" ng-confirm-click="Are you sure you want to delete this notification?">
+					             <!-- ng-click="deletesinglenoti(memberdata._id)" -->
+					            	<div class="md-acceptbtn"><i class="fa fa-times" aria-hidden="true"></i></div>
+					            </div>
+					            </div>
+					            <div ng-if="memberdata.type=='request'">
+					            <div class="col s6 l6 m6 cursorpntr" >
+					            	<div class="md-acceptbtn " ng-click="notifirequest(memberdata.constructiveAction,memberdata._id,memberdata.type)"><i class="fa fa-check" aria-hidden="true"></i></div>
+					            </div>
+					             <div class="col s6 l6 m6 cursorpntr" ng-click="notifirequest(memberdata.destructiveAction,memberdata._id,memberdata.type)">
+					            	<div class="md-acceptbtn"><i class="fa fa-times" aria-hidden="true"></i></div>
+					            </div>
+					            </div>
+				             </div>
+			            </div>
+			        </div>
+		        </div>

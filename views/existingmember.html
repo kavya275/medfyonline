@@ -1,0 +1,135 @@
+
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+
+<!--*********SUB MENU************-->
+<submenu></submenu>
+
+<!--*********PROFILE SECTION************-->
+<!-- <profileinfo></profileinfo> -->
+ <!-- **********FORM****************** -->
+ <section class="md-profileeditform">
+	<div class="container md-box">
+		<div class="row">
+			 <div class="col l8 m8 s8 offset-m2 offset-l2">
+			       <form ng-submit="searchbyemail(email)">
+			            <div class="input-field col s12 m12 l12 mt0px">
+			           <center>  
+			           	<div class="md-ftl">
+			                <input id="email" ng-model="email" type="email" class="validate rw-btm md-serchbox" placeholder="Exist User Email-ID">
+			              </div>
+			             <div class="md-lefticon" ng-click="searchbyemail(email)">
+			                 <i class="fa fa-search md-vasearch" aria-hidden="true"></i>
+			            </div>
+			             </center> 
+			            </div>
+			      </form>
+      		 </div>
+      		 <div class="col m12 l12 s12 mt10" ng-repeat="mail in listofmail">
+	      		 <a material-modal data-modaltarget="menuModal" modalstatus="openmod" ng-click="openmodal(mail,relation)">
+	      		  <div class="col m8 l8 s8">
+	      		 	<div class="md-exitimgmemb">
+	      		 		<img src="assets/images/sign-up-in-bg.jpg" class="exit-img">
+	      		 	</div>
+	      		 	<div class="md-exitname">
+	      		 		<p class="md-extnamerec">{{mail.name}}</p>
+	      		 		<p class="md-extnamerec md-extrecord">{{mail.recordCount}} Records</p>
+	      		 	</div>
+	      		  </div>
+	      		   </a>
+	      		  <div class="col m4 l4 s4">
+	      		  	<select class="browser-default" ng-model="relation">
+					    <option value=""  selected>Relation</option>
+					    <option value="father">Father</option>
+					    <option value="mother">mother</option>
+					    <option value="brother">brother</option>
+					    <option value="sister">sister</option>
+					    <option value="husband">husband</option>
+					    <option value="wife">wife</option>
+					    <option value="son">son</option>
+					    <option value="daughter">daughter</option>
+					    <option value="father-in-law">father-in-law</option>
+					    <option value="mother-in-law">mother-in-law</option>
+					    <option value="son-in-law">son-in-law</option>
+					     <option value="daughter-in-law">daughter-in-law</option>
+					      <option value="uncle">uncle</option>
+					       <option value="aunt">aunt</option>
+					        <option value="cousin">cousin</option>
+					         <option value="friend">friend</option>
+					          <option value="other">other</option>
+					  </select>
+	      		  </div>
+	      		  
+      		 </div>
+      		<!--  <div class="col m12 l12 s12 mt10">
+	      		  <div class="col m8 l8 s8">
+	      		 	<div class="md-exitimgmemb">
+	      		 		<img src="assets/images/sign-up-in-bg.jpg" class="exit-img">
+	      		 	</div>
+	      		 	<div class="md-exitname">
+	      		 		<p class="md-extnamerec">Name goes here</p>
+	      		 		<p class="md-extnamerec md-extrecord">0 Records</p>
+	      		 	</div>
+	      		  </div>
+	      		  <div class="col m4 l4 s4">
+	      		  	<select class="browser-default">
+					    <option value=""  selected>Relation</option>
+					    <option value="1">Option 1</option>
+					    <option value="2">Option 2</option>
+					    <option value="3">Option 3</option>
+					  </select>
+	      		  </div>
+      		 </div>
+      		 <div class="col m12 l12 s12 mt10">
+	      		  <div class="col m8 l8 s8">
+	      		 	<div class="md-exitimgmemb">
+	      		 		<img src="assets/images/sign-up-in-bg.jpg" class="exit-img">
+	      		 	</div>
+	      		 	<div class="md-exitname">
+	      		 		<p class="md-extnamerec">Name goes here</p>
+	      		 		<p class="md-extnamerec md-extrecord">0 Records</p>
+	      		 	</div>
+	      		  </div>
+	      		  <div class="col m4 l4 s4">
+	      		  	<select class="browser-default">
+					    <option value=""  selected>Relation</option>
+					    <option value="1">Option 1</option>
+					    <option value="2">Option 2</option>
+					    <option value="3">Option 3</option>
+					  </select>
+	      		  </div>
+      		 </div> -->
+	    </div>
+	 </div>
+</section>
+<!--*********PROFILE SECTION************-->
+<footer></footer>
+<!-- Modal Menubar  Structure -->
+  <div class="creatiseModal md-createnwentry" id="menuModal">
+    <div class="modal-content md-modalcnt">
+      <div class="md-cnthading">
+        <p class="modal-heading">Add Record</p>
+      </div>
+      <div class="md-cloasedbtn">
+         <div material-modal-close ><i class="fa fa-times" aria-hidden="true"></i></div>
+      </div>
+     <div class="row">
+       <div class="col l12 m12 s12">
+             <div class="input-field col s8 m8 l8">
+            
+               <p>Add {{mailname}} as your family member?</p>
+             </div>
+             <div class="input-field col s8 m8 l8 offset-m2 offset-l2 ">
+               <p>{{mailname}} will be added to your family list once your request is accepted.</p>
+             </div>
+              <div class="col l6 m6 s12">
+                  <a material-modal-close class="waves-effect waves-light btn md-reqbtn greenaccpt">Cancel</a>
+              </div>
+              <div class="col l6 m6 s12">
+                  <a class="waves-effect waves-light btn md-reqbtn greenaccpt right" ng-click="addexistingmem(mailid,mailrelation)">Create</a>
+              </div>
+       </div>
+    </div>
+  </div>
+ </div>
+ 

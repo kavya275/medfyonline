@@ -1,0 +1,27 @@
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+
+<!--*********SUB MENU************-->
+<submenu></submenu>
+	<section class="md-profilesec">
+		<div class="container md-containernotifact md-box">
+			<div class="row rw-btm">
+			<div class="col l12 m12 s12">
+ 			  <p><b>Notification</b></p>
+		     </div>   
+		        
+		       <div ng-repeat="noti in notificationlist">
+<!--   -->
+<!-- {{$index}} -->
+		       		<record-view ng-if="noti.type=='informative'"  recorddata="noti"></record-view>
+					<member-add ng-if="noti.type=='newRecord' || noti.type=='request'" indexval="$index" memberdata="noti"></member-add>
+		       </div>
+		        <center>
+                   <button ng-click="deleteinfonoti($event,'all')" class="waves-effect waves-light btn md-reqbtn greenaccpt">Clear All notifications</button>
+                 </center>
+	
+		    </div>
+		 </div>
+	</section>    
+	
+<footer></footer>

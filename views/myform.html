@@ -1,0 +1,303 @@
+
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+
+<!--*********SUB MENU************-->
+<submenu></submenu>
+
+ <section class="md-familymemeber">
+	<div class="container md-container5box">
+		<div class="row ">
+	        <div class="col s12 m12 l12">
+	       		 <h6 class="md-familyhding">Form Category</h6>
+	        </div>
+	         <div class="col s5 m5 l5">
+	         	<div class="col s12 m3 l3">
+	         	<div material-modal data-modaltarget="newformModal" modalstatus="newform" ng-click="openmodalform('newform')">
+	         		<div class="md-newform md-formbox1">
+	         			<p class="md-formboxtxt"><i class="fa fa-plus-circle md-formplus" aria-hidden="true"></i> &nbsp;&nbsp;New Form</p>
+	         		</div>
+	         	</div>
+	         	</div>
+	         	<div class="col s12 m3 l3 mbt10 flip md-postion " ng-repeat="forms in listforms " ng-click="formentry(forms)">
+	         		<div  class="md-newform " ng-class="{'md-formbox4active':forms.title==formentrydata.title}">
+	         			<div class="md-formboxtxt mdflft"  >{{forms.title}}</div>
+	         		<!-- 	<div class="mdflft md-mdleft"><i class="fa fa-trash-o md-formdelet" aria-hidden="true" ng-click=
+	         			"deleteform(forms._id,$index)"></i></div> -->
+	         			<div class="mdflft md-mdleft" ng-hide="$index==0 || $index==1 "><i class="fa fa-trash-o md-formdelet" aria-hidden="true" confirmed-click="deleteform(forms._id,$index)" ng-confirm-click="You want to delete {{forms.title}}?"></i></div>
+	         		</div>
+	         	</div>
+	         	<!-- <div class="col s3 m3 l3 mbt10 flip">
+	         		<div class="md-newform md-formbox2">
+	         			<p class="md-formboxtxt">Blood Pressure</p>
+	         		</div>
+	         	</div>
+	         	<div class="col s3 m3 l3 mbt10 flip">
+	         		<div class="md-newform md-formbox3">
+	         			<p class="md-formboxtxt">Sugar</p>
+	         		</div>
+	         	</div>
+	         	<div class="col s3 m3 l3 mbt10">
+	         		<div class="md-newform md-formbox4">
+	         			<p class="md-formboxtxt">Blood Pressure</p>
+	         		</div>
+	         	</div>
+	         	<div class="col s3 m3 l3 mbt10">
+	         		<div class="md-newform md-formbox4">
+	         			<p class="md-formboxtxt">Blood Pressure</p>
+	         		</div>
+	         	</div>
+	         	<div class="col s3 m3 l3 mbt10">
+	         		<div class="md-newform md-formbox4">
+	         			<p class="md-formboxtxt">Blood Pressure</p>
+	         		</div>
+	         	</div> -->
+	         </div>
+	         <div class="col s7 m7 l7 md-newentrybox " ng-if="formentries">
+	         	 <div class="col s12 m12 l12 md-formboxonhv" >
+	         		 <div class="col s12 m3 l3 mbt20">
+	         		 	<div material-modal data-modaltarget="firstModal" modalstatus="newentryformd" ng-click="openmodalform('newentryform')">
+         		 			<div class="md-formhoverbox">
+         		 				<span class="md-formboxtxt"><i class="fa fa-plus-circle md-formplus" aria-hidden="true"></i></span>
+         		 				<span class="md-formboxtxt">Create New Entry</span>
+         		 			</div>
+	         		 	</div>
+	         		 </div>
+	         		 <!-- {{formentries}} -->
+	         		 <div class="col s12 m3 l3 mbt20 hover-editdel" ng-repeat="entry in formentries |limitTo
+	         		 :6">
+	         		 	<div class="md-formwhite" ng-repeat="val in entry.values" >
+	         		 		<p class="md-formpar"><span class="md-formdai">{{val.formElement.title}}:</span> {{val.value}}{{val.formElement.unit}}</p>
+	         		 	
+	         		 		<!-- <p class="md-formpar"><span class="md-formdai">Diastolis: </span>130 mm Hg</p> -->
+	         		 	</div>
+	         		 	<div class="md-fromdate">
+	         		 		<div class="md-dateicon"><i class="fa fa-calendar " aria-hidden="true"></i>&nbsp;{{entry.createdTimestamp | date}}</div>
+	         		 		<div class="md-dateicon_holder">
+	         		 		<span class="md-dateicon md-myformdel " material-modal data-modaltarget="editformModal" modalstatus="editformval"  ng-click="openeditformentry(entry)"><i class="fa fa-pencil md-editdel" aria-hidden="true"></i>&nbsp;</span>
+	         		 		<span class="md-dateicon " confirmed-click="deleteformentry(entry._id,$index)" ng-confirm-click="You want to delete ?"><i class="fa fa-trash-o md-editdel" aria-hidden="true"></i>&nbsp;</span>	         		 			
+
+	         		 		</div>
+
+	         		 	</div>
+	         		<!--  	<div class="mdflft md-mdleft" ><i class="fa fa-trash-o md-formdelet" aria-hidden="true" confirmed-click="deleteformentry(entry._id,$index)" ng-confirm-click="You want to delete ?"></i></div> -->
+	         		 </div>
+	         		<!--  <div class="col s3 m3 l3 mbt20">
+	         		 	<div class="md-formwhite">
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis:</span> 130 mm Hg</p>
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis: </span>130 mm Hg</p>
+	         		 	</div>
+	         		 	<div class="md-fromdate">
+	         		 		<p class="md-dateicon"><i class="fa fa-calendar " aria-hidden="true"></i>&nbsp;12 Jan 2017</p>
+	         		 	</div>
+	         		 </div>
+	         		 <div class="col s3 m3 l3 mbt20">
+	         		 	<div class="md-formwhite">
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis:</span> 130 mm Hg</p>
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis: </span>130 mm Hg</p>
+	         		 	</div>
+	         		 	<div class="md-fromdate">
+	         		 		<p class="md-dateicon"><i class="fa fa-calendar " aria-hidden="true"></i>&nbsp;12 Jan 2017</p>
+	         		 	</div>
+	         		 </div>
+	         		 <div class="col s3 m3 l3 mbt20">
+	         		 	<div class="md-formwhite">
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis:</span> 130 mm Hg</p>
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis: </span>130 mm Hg</p>
+	         		 	</div>
+	         		 	<div class="md-fromdate">
+	         		 		<p class="md-dateicon"><i class="fa fa-calendar " aria-hidden="true"></i>&nbsp;12 Jan 2017</p>
+	         		 	</div>
+	         		 </div>
+	         		 <div class="col s3 m3 l3 mbt20">
+	         		 	<div class="md-formwhite">
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis:</span> 130 mm Hg</p>
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis: </span>130 mm Hg</p>
+	         		 	</div>
+	         		 	<div class="md-fromdate">
+	         		 		<p class="md-dateicon"><i class="fa fa-calendar " aria-hidden="true"></i>&nbsp;12 Jan 2017</p>
+	         		 	</div>
+	         		 </div>
+	         		  <div class="col s3 m3 l3 mbt20">
+	         		 	<div class="md-formwhite">
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis:</span> 130 mm Hg</p>
+	         		 		<p class="md-formpar"><span class="md-formdai">Diastolis: </span>130 mm Hg</p>
+	         		 	</div>
+	         		 	<div class="md-fromdate">
+	         		 		<p class="md-dateicon"><i class="fa fa-calendar " aria-hidden="true"></i>&nbsp;12 Jan 2017</p>
+	         		 	</div>
+	         		 </div> -->
+	         		  <a ui-sref="moreentryform({'formId':formentrydata._id,'title':formentrydata.title})" ng-if="formentries.length>6"><div class="col s12 m3 l3 mbt20">
+	         		 	<div class="md-formhoverbox">
+	         		 		<p class="md-formboxtxt"><i class="fa fa-ellipsis-h md-formplus" aria-hidden="true"></i></p>
+	         		 		<span class="md-formboxtxt">{{formentries.length-6}}  More</span>
+	         		 	</div>
+	         		 </div></a>
+	         	</div>
+	         	
+	         </div>
+	         <div id="highchartdisplay1" style="min-width: 310px; margin: 0 auto;"></div>	
+	       <!--   <div class="col s12 m12 l12"><br>
+	       		 <h6 class="md-familyhding">Blood pressure</h6>
+	        </div>
+	        <div class="col s12 m12 l12">
+	       		<img src="assets/images/graph.png" class="responsive-img">
+	        </div> -->
+
+	      <!--   <div class="col s12 m12 l12">
+			
+			</div>    -->
+     </div>
+	 </div>
+</section>
+<!--********************** Create New Form Modal************* -->
+<div class="creatiseModal md-createnwentry" id="newformModal">
+<div class="modal-content md-modalcnt">
+<form name="newaddForm" novalidate="">
+    	<div class="md-cnthading">
+      		<p class="modal-heading">New Form</p>
+      `	</div>
+       <div class="md-cloasedbtn">
+      	 <a class=" modal-action modal-close "  material-modal-close><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+      <div class="row">
+	     <div class="col l12 m12 s12">
+	     	<div class="input-field col s12 m12 l12">
+	          <input id="formname" name="formname" ng-model="formname" type="text" required="" class="validate md-input">
+	          <label for="formname">Enter Form Name</label>
+	          <span class="star" ng-show="submitted && newaddForm.formname.$error.required">Required</span>
+	        </div>
+
+	        <div ng-repeat="item in items">
+	        <div class="input-field col s12 m5 l5">
+	          <input  id="fieldname" name="fieldname{{$index}}" ng-model="item.fieldname" type="text" class="validate md-input" required="">
+	          <label for="fieldname">Field Name</label>
+	          <span class="star" ng-show="submitted && newaddForm.fieldname{{$index}}.$error.required">Required</span>
+	        </div>
+	         <div class="input-field col s12 m5 l5">
+	          <input id="unit" ng-model="item.unit" name="unit{{$index}}" type="text" class="validate md-input" required="">
+	          <label for="unit">Units</label>
+	          	<span class="star" ng-show="submitted && newaddForm.unit{{$index}}.$error.required">Required</span>
+
+	        </div>
+	      
+	         <div class="input-field col s12 m2 l2">
+	         <a ng-click="add()" ng-if="$index==0" ng-hide="items.length==5">
+	         	<i class="fa fa-plus-circle" aria-hidden="true" ></i>
+	         	</a>
+	         	 <a ng-click="remove(item)" ng-if="$index!=0">
+	         	 <i class="fa fa-remove" aria-hidden="true" ></i>
+	         	
+	         	</a>
+	         </div>
+	         </div>
+	         <div class="col s12 m12 l12">
+		      		<a ng-click="submitted=true;newaddForm.$valid && insertnewform(formname,items)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Save Form</a>
+		      	</div>
+	     </div>
+      </div>
+      </form>
+   </div>
+   </div>
+<!-- **********************Create New Entery Modal********** -->
+
+  <section>
+		<div class="creatiseModal md-createnwentry" id="firstModal">
+		 <div class="modal-content md-modalcnt">
+		 <form name="newentryForm" novalidate="">
+    	<div class="md-cnthading">
+      		<p class="modal-heading">Create New Entry</p>
+      `	</div>
+       <div class="md-cloasedbtn">
+      	 <a  material-modal-close><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+	      <div class="row">
+		     <div class="col l12 m12 s12">
+		     	<div class="input-field col s12 m12 l12">
+		          <input id="dateq" type="text" ng-model="examinationdate" class="md-input">
+		          <label for="dateq">Date of Examination</label>
+		        </div>
+		        <div ng-repeat="elements in  formentrydata.elements">
+		      	<div class="input-field col s9 m9 l9">
+		      		<input id="systolic{{$index}}" name="val{{$index}}" ng-model="elements.value" type="number" class="md-input" required="" min="0">
+		         	<label for="systolic{{$index}}">{{elements.title}}</label>
+		         	<span class="star" ng-show="submitted && newentryForm.val{{$index}}.$error.required">Required.</span>
+		      	</div>
+		      	<div class="col s3 m3 l3">
+		      		<p class="md-newenterymmhg">{{elements.unit}}</p>
+		      	</div>
+
+		      	</div>
+		      	<div class="col s12 m12 l12">
+		      		<a ng-click="submitted=true; newentryForm.$valid && newformentry(formentrydata,examinationdate)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Save Form</a>
+		      	</div>
+		     </div>
+	      </div>
+	      </form>
+  		 </div> 
+		</div>
+  </section>
+
+    <section>
+		<div class="creatiseModal md-createnwentry" id="editformModal">
+		 <div class="modal-content md-modalcnt">
+		 <form name="newentryForm" novalidate="">
+    	<div class="md-cnthading">
+      		<p class="modal-heading">Edit Form Entry</p>
+      	</div>
+       <div class="md-cloasedbtn">
+      	 <a  material-modal-close><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+<!--       {{forentryval}}
+ -->	      <div class="row">
+		     <div class="col l12 m12 s12">
+		     	<div class="input-field col s12 m12 l12">
+		          <input id="date" type="text" ng-model="forentryval.createdTimestamp" class="md-input" formatted-date>
+		          <label for="date">Date of Examination</label>
+		        </div>
+		        <div ng-repeat="elements in  forentryval.values">
+		      	<div class="input-field col s9 m9 l9">
+		      		<input id="systolic{{$index}}" name="val{{$index}}" ng-model="elements.value" type="number" class="md-input" required="" min="0">
+		         	<label for="systolic{{$index}}">{{elements.formElement.title}}</label>
+		      	</div>
+		      	<div class="col s3 m3 l3">
+		      		<p class="md-newenterymmhg">{{elements.formElement.unit}}</p>
+		      	</div>
+
+		      	</div>
+		      	<div class="col s12 m12 l12">
+		      		<a ng-click="editformentry(forentryval)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Save Changes</a>
+		      	</div>
+		     </div>
+	      </div>
+	      </form>
+  		 </div> 
+		</div>
+  </section>
+<!--FOOTER DIRECTIVE--> 
+
+<!--*********PROFILE SECTION************-->
+<footer></footer>
+
+<script type="text/javascript">
+    $('.fixed-action-btn').openFAB();
+  $('.fixed-action-btn').closeFAB(); 
+  $('.modal').modal();  
+
+           $("#dateq").datepicker({
+        dateFormat: 'yy-mm-dd',
+      	maxDate: new Date(),
+        defaultDate: new Date()
+    });
+
+           $("#date").datepicker({
+        dateFormat: 'yy-mm-dd',
+     	 maxDate: new Date(),
+        defaultDate: new Date()
+    });
+    $(document).ready(function() {
+		$(".flip").click(function() {
+			$(".md-newentrybox").slideToggle("slow");
+		});
+	});   
+</script>

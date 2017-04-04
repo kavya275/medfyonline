@@ -1,0 +1,74 @@
+<nav class="lnm-homenav">
+    <div class="nav-wrapper">
+      <a ui-sref="home" class="brand-logo"><img src="assets/images/App Icon.png" class="lnmlogi-img">
+      <span style="    color: black;
+    font-size: 30px;
+    font-style: normal;">Medfy</span></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="fa fa-bars side-icon" aria-hidden="true"></i></a>
+  <!--   <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a> -->
+      <ul class="right hide-on-med-and-down">
+         <!-- <li ng-if="loginstatus"><a ui-sref="home">Home</a></li> -->
+         <!--  <li><a ui-sref="aboutus">About Us</a></li>
+           <li><a ui-sref="contactus">Contact Us</a></li> -->
+
+          <li ng-if="!loginstatus"><a ui-sref="loginsignup">Login/Signup</a></li>
+        <li ng-if="loginstatus" class="notofication_dropdown " ng-click="opennoti($event)"><a  ><div><div class="md-ntfction" ng-if="notificationNumber!=0">{{notificationNumber}}</div><i class="fa fa-bell" aria-hidden="true"></i></div></a>
+          <ul  class="mdfy-minheight">
+              <li>
+               <!--  <div class="col s9"><span class="md-navnotificatin">aaaaaa aaaaaa aaaaaa aaaaaa aaaaaa aaaaaa aaaaaa aaaaaa</span></div> 
+                 <div class="col s3"><span class="md-navdate">&nbsp;&nbsp;27 may,2017</span></div> -->
+                 <div ng-repeat="noti in notificationlist | limitTo : 3" style="font-size: 12px;">
+                    <record-view ng-if="noti.type=='informative'"  recorddata="noti"></record-view>
+                    <member-add ng-if="noti.type=='request' || noti.type=='newRecord'" indexval="$index" memberdata="noti"></member-add>
+
+                 </div>
+                 <div ng-if="notificationlist.length>3">
+                 <center>
+                   <button ui-sref="notification" class="waves-effect waves-light btn md-reqbtn greenaccpt">View More Records</button>
+                 </center>
+                 </div>
+                 <div ng-if="notificationlist.length>0">
+                 <center>
+                   <button ng-click="deleteinfonoti($event,'all')" class="waves-effect waves-light btn md-reqbtn greenaccpt">Clear All notifications</button>
+                 </center>
+                      
+                 </div>
+                 <div ng-if="notificationlist.length==0">
+                   No Notification
+                 </div>
+              </li>
+             <!--  <li><a ui-serf="">aaaa</a></li>
+              <li><a ui-serf="">aaaa</a></li> -->
+          </ul>
+        </li>
+        <!-- <li ng-if="loginstatus"><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li> -->
+        <li class="dropdown" ng-if="loginstatus"><i class="fa fa-ellipsis-v" aria-hidden="true"></i> 
+            <ul><!--{{role=='mentor'}}--><!--===>{{role}}******-->
+                <li><a ui-sref="viewotherhistory">View Other History</a> </li>
+                 <li><a ui-sref="profileedit({userId:''})">Profile Edit </a> </li>
+                 <!-- <li><a material-modal data-modaltarget="addfamilyModal">Add Family Member </a> </li> -->
+                  <li><a confirmed-click="deleteuser()" ng-confirm-click="Are You sure to delete you account?" >Delete Account</a> </li>
+                   <!-- <li ng-if="usermobile==false"><a ui-sref="verifyotp" >VerifyMobileNumber</a> </li> -->
+                <li><a ng-click="logout()">Signout </a> </li>
+                <!-- <li><a ui-sref=""></a> </li>modal1
+                <li><a ui-sref="">submenu 1 </a> </li> -->
+            </ul>
+        </li>
+        </ul>
+      <!--   ......................MOBILE VIEW........................... -->
+      <ul class="side-nav" id="mobile-demo" >
+        <li><a href="#"><img src="assets/images/logo.png" style="height: 50px;"></a></li>
+        <li ng-if="loginstatus"><a ui-sref="viewotherhistory">View Other History </a> </li>
+       <li ng-if="loginstatus"><a ui-sref="profileedit({userId:''})">Profile Edit </a> </li>
+          <li ng-if="loginstatus"><a confirmed-click="deleteuser()" ng-confirm-click="Are You sure to delete you account?" >Delete Account</a> </li>
+        <li ng-if="loginstatus"><a ng-click="logout()">Signout </a> </li>
+         <li ng-if="!loginstatus"><a ui-sref="loginsignup">Login/Signup</a></li>
+      </ul>
+    </div>
+  </nav>
+
+<script>
+  $( document ).ready(function(){
+    $(".button-collapse").sideNav();
+  }) 
+</script>

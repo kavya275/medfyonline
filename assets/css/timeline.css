@@ -1,0 +1,33 @@
+/*= timeline css for data in one side =*/
+.timeline{float: left; width: 90%; margin: 40px 5%; padding-left: 40px !important; position: relative; border-left: 2px solid #b2b2b2; box-sizing: border-box;}
+.timeline: .timeline:after{content: ""; width: 16px; height: 16px; border: 2px solid #b2b2b2; position: absolute; left: -11px; border-radius: 50%;}
+/*.timeline:.md-monthname{top: -18px;}*/
+.timeline:after{bottom: -18px;}
+.timeline li{background-color: white; border: 1px solid #ccc; border-radius: 5px; float: left; margin-top: 20px; padding: 15px; position: relative; width: 60%;}
+.timeline li:first-child{margin-top: 0;}
+.timeline li:before{content: ""; width: 40px; height: 2px; background-color: #b2b2b2; position: absolute; top: 50%; left: -41px;}
+.timeline li:after{  /*  content: "27";
+    width: 25px;
+    height: 26px;
+    background-color: #b2b2b2;
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    left: -42px;
+    text-align: center;
+    color: white;
+    font-size: 16px;*/
+    content: attr(data-content);
+    width: 46px;
+    height: 44px;
+    background-color: #b2b2b2;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    left: -89px;
+    text-align: center;
+    color: white;
+    font-size: 16px;}
+.timeline-description p{margin-top: 15px;}
+.timeline-description p:first-child{margin-top: 0;}
+/*= ttimeline css for data in one side end =*/

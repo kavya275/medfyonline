@@ -1,0 +1,195 @@
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+ <section class="lnm-login-signup">
+		<div class="container mfy-loginsignup">
+			<div class="row rw-btm ln-mt10">
+				<div class="loginbox">
+					<div class="left-side active">
+							<div class="left-box-bg">
+							</div>
+							 <div class="card back nomargin">
+								<div class="card-content">
+								<form name="loginForm" novalidate="" ng-submit="submitted=true;loginForm.$valid && login(user) ">
+								<center>LOGIN</center>
+								 <div class="row rw-btm">
+									<div class="input-field col s12">
+									  <input id="name" name="email" ng-model="user.email" type="text" class="validate mdfy-mview" required="">
+									  <label for="name">User Name<span class="starcolor">*</span></label>
+									  <span class="star" ng-show="submitted && loginForm.email.$error.required">Please enter your email</span>
+
+									</div>
+								  </div>
+								  <div class="row">
+									<div class="input-field col s12">
+									  <input id="password" name="password" ng-model="user.password" type="password" class="validate mdfy-mview" required="">
+									  <label for="password">Password<span class="starcolor">*</span></label>
+									  <span class="star" ng-show="submitted && loginForm.password.$error.required">Please enter your password</span>
+									</div>
+								  </div>
+								 <p class="lmn-act ">Don't have an account?&nbsp;&nbsp;<span class="show_signUp">Sign Up</span></p>
+								<p class="lmn-forgot">
+								<a  material-modal data-modaltarget="forgotModal" modalstatus="forgot" ng-click="forgotmod()" class="cursorpntr">Forgot Password</a></p>
+								 <div class="row rw-btm">
+								 <center>
+								 <button type="submit" class="waves-effect waves-light btn lnm-signin">
+								 	Sign in
+								 </button>
+								
+								 <!-- <a ng-click="submitted=true;loginForm.$valid && login(user) " class="waves-effect waves-light btn lnm-signin">Signin</a></center>
+								  --></div>
+								 </form>
+								</div>
+								
+						  </div>
+					</div>
+					<div class="right-side ">
+							<div class="right-box-bg">
+							</div>
+							 <div class="card box-card nomargin">
+							<div class="card-content">
+							<form name="signupForm" novalidate="" ng-submit="submitted=true;signupForm.$valid  && signup(data)">
+							 <div class="row rw-btm">
+								<div class="input-field col s12 lmn-mtmblnsu">
+								  <input id="name1" type="text" ng-model="data.username" class="validate lnm-input" name="username" required="" ng-maxlength="256">
+								  <label for="name1">Full Name<span class="starcolor">*</span></label>
+								  <span  class="star" ng-show="submitted && signupForm.username.$error.required">Please enter your name</span>
+								  
+		         					 <span ng-show="signupForm.username.$error.maxlength && !signupForm.username.$focused" class="star">Allows maximum 256 Characters.</span>
+								</div>
+								<div class="input-field col s12 lmn-mtmblnsu">
+								  <input id="email1" ng-model="data.email" type="email" class="validate lnm-input" required="" name="email">
+								  <label for="email1">Email<span class="starcolor">*</span></label>
+								  <span  class="star" ng-show="submitted && signupForm.email.$error.required">Please enter your email
+</span>
+								</div>
+								<div class="input-field col s12 lmn-mtmblnsu">
+								  <input id="passwords" ng-model="data.password" type="password" class="validate lnm-input" required="" name="password" ng-pattern="/(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/">
+								  <label for="passwords">Password<span class="starcolor">*</span></label>
+								   <span class="star"  ng-show="submitted && signupForm.password.$error.required">Please enter a password</span>
+								     <p class="star" ng-show="signupForm.password.$error.pattern">Password should contain at least one number, one lowercase and one uppercase letter, at least 8 characters</p>
+								</div>
+								<div class="input-field col s12 lmn-mtmblnsu">
+								  <input id="confirmpassword" ng-model="data.confirmpassword" type="password" name="confirm" class="validate lnm-input" required="">
+								  <label for="confirmpassword">Confirm Password<span class="starcolor">*</span></label>
+								   <span  class="star" ng-show="submitted && signupForm.mobile.$error.required">Please enter a password</span>
+								   <div  ng-show="signupForm.confirm.$touched && signupForm.confirm.$dirty">
+								<span class="star" ng-show="data.password!=data.confirmpassword"
+     								 >Passwords do not match.</span>
+							</div>
+								</div>
+								<div class="input-field col s12 lmn-mtmblnsu">
+								  <input id="phonenumber" name="mobile" ng-model="data.mobileno" type="text" class="validate lnm-input" required="" ng-pattern="/^[0-9,]{1,10}$/" maxlength="10" minlength="10">
+								  <label for="phonenumber">Mobile Number<span class="starcolor">*</span></label>
+								  <span  class="star" ng-show="submitted && signupForm.mobile.$error.required">Please enter your phone number</span>
+								   <p ng-show="signupForm.mobile.$error.pattern" class="star">Enter a valid phone number.</p>
+                   			 		 <p ng-show="signupForm.mobile.$error.minlength" class="star">Minimum 10 numbers</p>
+								</div>
+								 <div class="col m12 l12 s12">
+								  <p>
+									  <input ng-model="checkdata" type="checkbox" class="filled-in" name="chkngo" id="filled-in-boxngo" required  />
+									  <label for="filled-in-boxngo" class="rj-tmscnd">I agree to the<a ui-sref="termsofuse" target="_blank"> Terms</a> and <a ui-sref="privacypolicy" target="_blank">Privacy</a></label>
+								  </p>
+								  <div ng-hide="signupForm.chkngo.checked"  class="error" ng-show="submitted &&  signupForm.chkngo.$invalid">
+								  <p ng-show=" submitted && signupForm.chkngo.$invalid" class="star">please select terms and condition</p>
+									  
+								  </div>
+							  </div>
+								 <div class="row rw-btm">
+								<div class="input-field col s12 lmn-mtmblnsu">
+								  <p class="lmn-act ">Already have an account?&nbsp;&nbsp;<span class="show_login">Login</span></p>
+								</div>
+							  </div>
+<!-- #289AD6 -->
+							   <div class="row rw-btm">
+							  <center>
+							  <button type="submit"  class="waves-effect waves-light btn lnm-signin">Create Account</button>
+							<!--   <a  class="waves-effect waves-light btn lnm-signin" ng-click="submitted=true;signupForm.$valid  && signup(data)">Create Account</a> -->
+							  </center></div>
+							  </div>	
+							  </form>						
+							  </div>
+							
+						  </div>
+					</div>
+					
+				</div>
+				
+			</div>
+		</div>
+	 </section>
+
+  <section>
+
+		<div class="creatiseModal md-createnwentry" id="forgotModal">
+		 <div class="modal-content md-modalcnt">
+		 <form name="forgotForm" novalidate="">
+    	<div class="md-cnthading">
+      		<p class="modal-heading">Reset Password</p>
+      </div>
+       <div class="md-cloasedbtn">
+      	 <a  material-modal-close><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+	      <div class="row">
+		     <div class="col l12 m12 s12">
+		     	<div class="input-field col s12 m12 l12">
+		          <input name="mail" id="date" type="email" ng-model="mailid" required="">
+		          <label for="date">Enter Your Mailid</label>
+		          <span class="star" ng-show="submittedf && forgotForm.mail.$error.required">Email id is Required</span>
+		          <span class="star" ng-show="forgotForm.mail.$error.email">Enter  valid Email</span>
+		        </div>
+		
+		      	<div class="col s12 m12 l12">
+		      		<a ng-click="submittedf=true; forgotForm.$valid && forgotpassword(mailid)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Send</a>
+		      	</div>
+		     </div>
+	      </div>
+	      </form>
+  		 </div> 
+		</div>
+  </section>
+ <section>
+ <div material-modal data-modaltarget="mailmod" modalstatus="opensignupmod"></div>
+		<div class="creatiseModal md-createnwentry" id="mailmod">
+		 <div class="modal-content md-modalcnt">
+		 <form name="newentryForm" novalidate="">
+    
+       <div class="md-cloasedbtn">
+      	 <a  material-modal-close><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+	      <div class="row">
+		     <div class="col l12 m12 s12">
+		     	<div class="input-field col s12 m12 l12">
+		          Verify your email ID by clicking the link sent through mail and also verify your mobile number through Otp.
+		        </div>
+		      	<div class="col s12 m12 l12">
+		      		<button material-modal-close class="waves-effect waves-light btn md-reqbtn greenaccpt right show_login" ng-click="opensignupmod=hide">Ok</button>
+		      	</div>
+		     </div>
+	      </div>
+	      </form>
+  		 </div> 
+		</div>
+  </section>
+<footer></footer>
+<script>
+		 $(".left-box-bg,.show_login").click(function(){
+			 $(".left-side").addClass("active");
+			 $(".right-side").removeClass("active");
+			
+		  });
+		$(".right-box-bg,.show_signUp").click(function(){
+			 $(".left-side").removeClass("active");
+			 $(".right-side").addClass("active");
+		});
+		function resettoggle() {
+			var e = document.getElementById('foo');
+			e.style.display = 'none';
+			}
+			function toggle_visibility(id) {
+			var e = document.getElementById(id);
+			if(e.style.display == 'none')
+			e.style.display = 'block';
+			else
+			e.style.display = 'none';
+			}
+	  </script>

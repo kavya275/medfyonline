@@ -1,0 +1,86 @@
+<div class="fixed-action-btn">
+    <a href="" class="btn-floating btn-large red">
+      <i class="fa fa-plus md-menubar" aria-hidden="true"></i>
+    </a>
+    <ul>
+        <div material-modal data-modaltarget="menubarModal"  modalstatus="recordmod"  ng-click="openrecordmodal('check-up.png','checkup')"> <li><a href="" class="btn tooltipped btn-floating checkup-icon" data-position="left"  data-tooltip="Check-up" ><img src="assets/images/boxicons/check-up.png" class="md-iconimg"></a></li></div>
+
+     <div material-modal data-modaltarget="menubarModal"  modalstatus="recordmod"  ng-click="openrecordmodal('illness.png','illness')"> <li><a href="" data-position="left"  data-tooltip="lllness" class="btn-floating tooltipped  illnes-icon"><img src="assets/images/boxicons/illness.png" class="md-iconimg"></a></li></div>
+
+    <div material-modal data-modaltarget="menubarModal"  modalstatus="recordmod"  ng-click="openrecordmodal('surgery.png','surgery')">  <li><a href="" data-position="left"  data-tooltip="Surgery" class="btn-floating surgery-icon tooltipped"><img src="assets/images/boxicons/surgery.png" class="md-iconimg"></a></li></div>
+
+     <div material-modal data-modaltarget="menubarModal"  modalstatus="recordmod"  ng-click="openrecordmodal('medication.png','medication')"> <li><a href="" data-position="left"  data-tooltip="Medication" class="btn-floating medication-icon tooltipped"><img src="assets/images/boxicons/medication.png" class="md-iconimg"></a></li></div>
+
+       <div material-modal data-modaltarget="menubarModal" modalstatus="recordmod" ng-click="openrecordmodal('immunization.png','immunization')"><li><a href="" data-position="left"  data-tooltip="Immunization" class="btn-floating immunization-icon tooltipped"><img src="assets/images/boxicons/immunization.png" class="md-iconimg"></a></li></div>
+    </ul>
+</div>
+
+
+<!-- Modal Menubar  Structure -->
+  <div class="creatiseModal md-createnwentry" id="menubarModal">
+    <div class="modal-content md-modalcnt">
+    <form name="recordform" novalidate="">
+      <div class="md-cnthading">
+        <p class="modal-heading">Add Record</p>
+      </div>
+      <div class="md-cloasedbtn">
+         <div material-modal-close ><i class="fa fa-times" aria-hidden="true"></i></div>
+      </div>
+     <div class="row">
+       <div class="col l12 m12 s12">
+             <div class="col l2 m2 s2">
+               <div  class="btn-floating md-addrecordmt20 checkup-icon center"><img src="assets/images/boxicons/{{imgname}}" class="md-iconimg"></div>
+            </div>
+             <div class="input-field col s8 m8 l8">
+               <input id="discription" type="text" name="desc" ng-model="record.desc" class="validate md-input" required="">
+                <label for="discription">Description</label>
+                 <span ng-show="submitted && recordform.desc.$error.required" class="star"> please enter description.</span> 
+             </div>
+             <div class="input-field col s8 m8 l8 offset-m2 offset-l2 ">
+               <input id="datep" type="text" ng-model="record.date" >
+               <!--  -->
+                <label for="datep">Date</label>
+             </div>
+            <!--  <div class="col l12 m12 s12">
+               <img src="assets/images/defaulterror/default-image.jpg" class="md-addreportmenu">
+             </div> -->
+              <div class="col l6 m6 s12">
+              <input type="file" id="mulimg"  filemul-upload my-upload multiple="">
+                  <!-- <a class="waves-effect waves-light btn md-reqbtn greenaccpt">Add a Report</a> -->
+              </div>
+              <div class="col l6 m6 s12">
+                  <a ng-click="submitted=true;recordform.$valid 
+                  && addrecord(record,recordtype)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Create</a>
+              </div>
+       </div>
+    </div>
+    </form>
+  </div>
+ </div>
+ 
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.fixed-action-btn').openFAB();
+   $('.fixed-action-btn').closeFAB(); 
+    $('.tooltipped').tooltip();
+
+  });
+    //        $("#datep").datepicker({
+    //       // dateFormat: 'yy-MM-dd',
+    //       maxDate: new Date(),
+    //       // defaultDate: new Date()
+    // });
+
+           $(function() {
+    $('#datep').datepicker({
+        dateFormat: 'yy-MM-dd',
+         maxDate: new Date()
+        // onSelect: function(datetext){
+        //     var d = new Date(); // for now
+        //     datetext=datetext+" "+d.getHours()+": "+d.getMinutes()+": "+d.getSeconds();
+        //     $('#datep').val(datetext);
+        // },
+    });
+});
+</script>

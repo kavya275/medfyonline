@@ -1,0 +1,68 @@
+
+<homenav></homenav>
+
+<submenu></submenu>
+
+                    
+                     <!-- <div class="row">
+                             <div class="col l12 m12 s12"  ng-repeat="record in recorddetail">
+                             <div class="col l2 m2 s2">
+
+                               <div  class="btn-floating md-addrecordmt20 center"><img ng-src={{record.icon}} class="md-iconimg"></div>
+                            </div>
+                             <div class="input-field col s8 m8 l8">
+                               <input id="discription" type="text" ng-model="record.description" class="validate md-input">
+                               
+                                <label for="discription">Description</label>
+                             </div>
+                             <div class="input-field col s8 m8 l8 offset-m2 offset-l2 ">
+                               <input id="date" type="text" ng-model="record.createdTimestamp" formatted-date format="medium">
+                                <label for="date">Date</label>
+                             </div>
+                             <div class="col l12 m12 s12" ng-repeat="img in record.reports">
+                               <img ng-src="{{img.icon}}" class="md-addreportmenu">
+                             </div>
+                       </div>
+                       <div ng-if="errormsg" class="col l12 m12 s12">
+                         {{errormsg}}
+                       </div>
+                    </div>
+                  -->
+                  <div class="container md-timelinecontainer other_records">
+                      <div class="row">
+                        <div class="col l12 m12 s12" >
+                          <ul class="timeline">
+                           <view-record history="recorddetail" ></view-record>  
+                          <!--   <li ng-repeat="record in recorddetail" >
+                              <div class="timeline-description">
+                                   <div  class=" md-timelinecircle "><img ng-src={{record.icon}} class="md-iconimgrecord"></div>
+                                
+                                <div class="md-timelinecnt md-checkupleftline">
+                                  <p class="rw-btm">{{record.description}} </p>
+                                </div>
+                                <div class="md-timelineline"></div>
+                              <div class="md-report" ng-repeat="searchphotos in record.reports" collapsible lazy-load>
+                              <div class="team-member">
+                              <a class="group1" href="{{searchphotos.icon | replacename}}" target="_blank" >
+                                <img ng-src="assets/images/loading.gif"
+                                        lazy-img="{{searchphotos.icon}}"
+                                        class="md-imagereport"  >
+                              </a>
+                            </div>
+                              </div>
+                                <div class="md-reportlastupdate">
+                                <p class="rw-btm"><b>Date:</b> &nbsp;{{record.createdTimestamp | date}}</p>
+                                </div>
+                              </div>
+                          </li>    -->                         
+                         
+                          </ul>
+                          <div ng-if="recorddetail.length==0">
+                            No Records Found
+                          </div>
+                          <div ng-if="errormsg" class="col l12 m12 s12">
+                         {{errormsg}}
+                       </div>
+                        </div>
+                      </div>
+                  </div>

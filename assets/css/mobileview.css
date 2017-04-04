@@ -1,0 +1,160 @@
+@media screen and (max-width:650px) 
+{
+    .container
+	{
+		width:85% !important;
+	}
+	.lnm-howitwork {
+	    background-image: url(../images/howitworks/howitworks-bg.jpg);
+	    height: 236px;
+	    padding :15px;
+	}
+	.cont-mobile
+	{
+	    width: 100% !important;
+	}
+	.mttop100 
+	{
+    	margin-top: 62px;
+	}
+	.lmn-topbox 
+	{
+	    background-color: white;
+	    padding: 15px;
+	    border: 1px solid lightgray;
+	    margin-bottom: 12px;
+	}
+	.timeline li
+	{
+		width: 129%;
+	}
+	.md-idbox {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 266px;
+	}
+	.md-bordert
+	{
+		border-bottom: 2px solid lightgray;
+		border-right: none;
+	}
+	.md-idboxfamily 
+	{
+	    width: 269px;
+	    margin-bottom: 10px;
+	    margin-top: 10px;
+	}
+	.md-switchcenter
+	{
+	    margin-left: auto;
+	    margin-right: auto;
+	    margin-bottom: 10px;
+	}
+	.md-viewhistroryimg
+	 {
+	    border-radius: 50%;
+	    height: 40px;
+	    width: 40px;
+	}
+	.md-viewhstyname 
+	{
+	    margin-left: 10px !important;
+	    font-size: 13px;
+	    margin-top: 6px;
+	}
+	.md-viewhstynameother
+	 {
+	    margin-left: 10px !important;
+	    font-size: 13px;
+	    margin-top: 3px;
+	    margin-bottom: 2px;
+	    text-align: left !important;
+	}
+	.md-bordertopbtm
+	{
+		padding: 8px !important;
+	}
+	.mfy-loginsignup
+	{
+	    width: 95% !important;
+	}
+	.mdfy-mview
+	{
+		 margin: 0 0 5px 0 !important;
+	}
+	.right-side 
+	{
+	    width: 70%;
+    	right: 20px;
+	    top: 0px;
+	    position: absolute;
+	    z-index: 1;
+	}
+	.left-side
+	 {
+	    width: 60%;
+	    left: 20px;
+	    top: 35px;
+	    position: absolute;
+	    z-index: 1;
+	}
+	#toast-container
+	{
+		    width: 19em !important;
+	}
+	#toast-container  .toast-message
+	{
+		    min-width: 223px;
+	}
+	.md-createnwentry 
+	{
+	    width: 97% !important;
+	    max-height: 98% !important;
+	    height: none !important;
+	}
+	.md-switchtpbtm
+	{
+		font-size: 11px;
+	}
+	.md-onoff
+	{
+		width: 96%;
+	}
+	.mt20
+	{
+		margin-top:20px;
+	}
+	#toast-container > div 
+	{
+    padding: 8px 8px 8px 50px;
+    width: 20em !important;
+	}
+
+
+}
+@media only screen
+and (min-width:961px)
+and (max-device-width : 1024px)
+{
+	.md-idbox
+	{
+		width: 200px;
+	}
+	.timeline li
+	{
+		width: 129%;
+	}
+
+	
+}
+/*..................css for tablets-------------*/
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+{
+	.md-idbox
+	{
+		width: 200px;
+	}
+	
+}

@@ -1,0 +1,103 @@
+<section class="md-profilesec">
+	<div class="container-fluid md-box">
+		<div class="row rw-btm">
+			<div class="container md-container">
+		        <div class="col s12 m12 l12">
+	        		<div class="col s12 m3 l3 center">
+
+	     <!-- assets/images/defaulterror/default-image.jpg		 -->
+	     <img src="assets/profile_pic.jpg" on-error="assets/images/profile_pic.jpg" class="md-profilecr" ng-if="!userdetail.profilePic">
+	        			<img ng-src="{{userdetail.profilePic}}" class="md-profilecr" ng-if="userdetail.profilePic">
+	        			<!-- <input type="file" ng-model="userdetail.profilePic" name="files" base-sixty-four-input  accept="image/*">
+	        			FILES::{{userdetail.profilePic}}
+	        			<img ng-src="{{userdetail.profilePic.base64}}" > -->
+	        	<!-- {{currentstate}}== -->
+	        	<div ng-if="currentstate=='profileedit'">
+	        	<input type="file" file-upload my-upload>
+	        	<span class="star">Note: Image uploads are limited to 10MB</span>
+	        	<!-- <span ng-if="imagesize">{{imagesize | Filesize}}--</span> -->
+	        	<span class="star">{{errormsg}}</span>
+	        	<button ng-if="userdetail.profilePic" class="waves-effect waves-light btn" ng-click="removephoto()">Remove Photo</button>
+	        	</div>
+	        		</div>
+	        		<div class="col s12 m5 l5 md-bordert">
+	        			<p class="md-profilename">
+
+	        				{{userdetail.name}}
+	        			</p>
+	        			<p class="md-pfsub">Allergic to {{userdetail.foodAllergies}}</p>
+	        			<p class="md-emailage">
+	        				<span><i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;{{userdetail.email}}</span>&nbsp;&nbsp;
+	        				<span ng-if="userdetail.gender"><i class="fa fa-male" aria-hidden="true"></i>&nbsp;&nbsp;{{userdetail.gender}}</span>&nbsp;&nbsp;
+	        				<span ng-if="userdetail.birthday">Age:
+	        				{{userdetail.birthday | agecal}} Years</span></p>
+	        		</div>	
+	        		<div class="col s12 m4 l4 ">
+	        		<div class="right">
+	        		<!-- {{userdetail}} -->
+	        			<a ui-sref="profileedit({userId:relid})"><i class="fa fa-pencil" aria-hidden="true"></i></a>&nbsp;&nbsp;
+	        		
+	        		
+	        		<!-- <a ng-if="relid"  ng-click="removefm(relid)"><i class="fa fa-trash-o" aria-hidden="true"></i></a> -->
+	        		<!-- {{userdetail._id}} -->
+	        		<a ng-if="relid"confirmed-click="removefm(userdetail._id)" ng-confirm-click="Delete {{userdetail.name}} from your family ??"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+	        		
+	        		</div>
+	        			<div class="c100 p{{userdetail.completion}} large md-profilpercent">
+		                   <span class="lmn-breadcrumspanln">{{userdetail.completion}}%</span>
+		                    <div class="slice">
+		                        <div class="bar"></div>
+		                        <div class="fill"></div>
+		                    </div>
+	               		 </div><!--  
+	               		 -->
+	               		 <p class="md-profilepercemt">Profile</p>
+	               		 <p class="md-complete">Complete your Profile</p>
+	               		 <!-- {{useridentifier}} -->
+	               		 <p class="md-complete" ng-if="!useridentifier"><a ui-sref="viewhistory" class="waves-effect waves-light btn md-prfviewbtn">View History</a></p>
+	               		 <p class="md-complete" ng-if="useridentifier"><a ui-sref="viewhistory({userId:useridentifier})" class="waves-effect waves-light btn md-prfviewbtn">View History</a></p>
+	               		 <div ng-if="loginuserid==userdetail._id">
+	               		 
+
+						 <span ng-if="userdetail.mobileVerified==false && userdetail.mobileNumberToVerify"><a ui-sref="verifyotp" class="waves-effect waves-light btn md-prfviewbtn">Verify Number</a></span>
+	               		  <span ng-if="userdetail.mobileVerified==false && userdetail.mobileNumberToVerify" ><a ui-sref="resendotp" class="waves-effect waves-light btn md-prfviewbtn">Resend OTP</a></span>
+	               		 <!-- <span ng-if="userdetail.mobileVerified==false"><a material-modal data-modaltarget="verifyotp" modalstatus="modstatuss" ng-click="openmodal('verify')" class="waves-effect waves-light btn md-prfviewbtn">Verify OTP</a></span>
+	               		  <span ng-if="userdetail.mobileVerified==false" ><a material-modal data-modaltarget="verifyotp" modalstatus="modstatuss" ng-click="openmodal('resend')" class="waves-effect waves-light btn md-prfviewbtn">Resend OTP</a></span> -->
+	               		  </div>
+	        		</div>
+		        </div>
+		 	</div>
+		 </div>
+	</div>
+</section>
+
+     <div class="creatiseModal md-createnwentry" id="verifyotp">
+                    <div class="modal-content md-modalcnt">
+                      <div class="md-cnthading">
+                        <p class="modal-heading">VerifyOTP {{otptype}}</p>
+                      </div>
+                      <div class="md-cloasedbtn">
+                         <div material-modal-close ><i class="fa fa-times" aria-hidden="true"></i></div>
+                      </div>
+                     <div class="row">
+                       <div class="col l12 m12 s12">
+                             <div class="input-field col s12 m12 l12" ng-hide="otptype!='verify'">
+                               <input id="otp" type="text" ng-model="otp.otpnum" class="validate md-input">
+                                <label for="otp">OTP</label>
+                             </div>
+                             <div class="input-field col s12 m12 l12  ">
+                               <input id="discription" type="text" ng-model="userdetail.email">
+                                <label for="discription">Email</label>
+                             </div>
+                             <div class="input-field col s12 m12 l12">
+                               <input id="password" type="password" ng-model="otp.password">
+                                <label for="password">Password</label>
+                             </div>
+                            
+                              <div class="col l12 m12 s12">
+                                  <a ng-click="verifyotp(otptype,otp,userdetail.email)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Send OTP</a>
+                              </div>
+                       </div>
+                    </div>
+                  </div>
+                 </div>

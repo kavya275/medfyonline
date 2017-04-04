@@ -1,0 +1,45 @@
+       		<li ng-repeat="history in history" data-content="{{history.createdTimestamp | date :'MMM d'}}">
+                <div class="timeline-description">
+                		<p class="md-timelinecircle md-checkupcir">
+                        <img src="{{history.icon}}" class="md-tmlimg"></p>
+                	
+                	<div class="md-timelinecnt md-checkupleftline">
+                		<p class="rw-btm">
+                        {{history.description}}</p>
+                	</div>
+                	<div class="md-timelineline"></div>
+                        <div class="md-report" ng-repeat="searchphotos in history.reports " colorbox lazy-load>
+                    <div class="team-member">
+           <center>
+            <a class="group1" href="{{searchphotos.icon | replacename}}" target="_blank" >
+            <img id="{{searchphotos._id}}" ng-src="assets/images/loading.gif"
+                                lazy-img="{{searchphotos.icon}}"
+                                class="md-imagereport"  >
+                                </a>
+    
+  
+              </center>
+                    </div>
+                   <!--  <div class="delete_report">
+                <center>
+                <a class="btn btn-icon btn-flat btn-dwn report12" confirmed-click="deletereport(history._id,searchphotos._id,$index)" ng-confirm-click="You want to delete Report?"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                </center> -->
+              </div>
+                </div>
+                <!--   -->
+           <!--      <a ng-if="history.reports.length>4" ng-click="changelimit(history.reports.length,$index)" ng-hide="hide_box==true"><div class="col s3 m3 l3 mbt20">
+                <div class="md-formhoverbox">
+                  <p class="md-formboxtxt"><i class="fa fa-ellipsis-h md-formplus" aria-hidden="true"></i></p>
+                  <span class="md-formboxtxt">{{history.reports.length-4}}  More</span>
+                </div>
+               </div></a> -->
+                	<div class="md-reportlastupdate ">
+                <!-- 	<p class="rw-btm left">Last Updated 05:30 PM </p> -->
+                     <div class="md-timelineeditdelt">
+                      <span material-modal data-modaltarget="viewfirstModal" modalstatus="editrecord" ng-click="getrecorddetails(history._id,$index)"><i class="fa fa-pencil" aria-hidden="true"></i></span>&nbsp;&nbsp;
+                     <!--    <span ng-click="deleterecord(history._id,$index)"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+                     <span  confirmed-click="deleterecord(history._id,$index)" ng-confirm-click="You want to delete Record?"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                     </div>   
+                	</div>
+                
+                </li>

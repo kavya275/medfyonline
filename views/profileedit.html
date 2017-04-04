@@ -1,0 +1,177 @@
+
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+
+<!--*********SUB MENU************-->
+<submenu></submenu>
+
+<!--*********PROFILE SECTION************-->
+<profileinfo userdetail="userinfo" relid="relationID"></profileinfo>
+ <!-- **********FORM****************** -->
+
+ <!-- {{userinfo.profilePic}}==== -->
+ <section class="md-profileeditform">
+	<div class="container md-box">
+		<div class="row">
+		<form name="editMemberForm">
+	        <div class="col s12 m12 l12 ">
+	        	<div class="input-field col s12 m6">
+		          <input  id="first_name" name="name" ng-model="userinfo.name" type="text" class="validate"  ng-maxlength="256">
+		          <!-- ng-minlength="3" -->
+		          <label for="first_name">First Name</label>
+
+		         <!--  <span class="star" ng-show="editMemberForm.name.$error.minlength">Should Contain Atleast 3 Characters.</span> -->
+		          <span ng-show="editMemberForm.name.$error.maxlength && !editMemberForm.name.$focused" class="star">Allows maximum 256 Characters.</span>
+		        </div>
+		        <div class="input-field col s12 m6">
+		        {{userinfo.email}}
+		          <!-- <input id="email" ng-model="userinfo.email" type="email" class="validate disabled">
+		          <label for="email">Email</label> -->
+		        </div>
+		        <!-- ng-if="userinfo.mobileVerified==true" -->
+		        <div class="input-field col s6" >
+		          <input id="number" ng-model="userinfo.mobileNumber" type="text" class="validate" ng-pattern="/^[0-9,]{1,10}$/" maxlength="10" minlength="10" name="phone_num">
+		          <label for="number">Mobile Number</label>
+		          	 <p class="star" ng-show="editMemberForm.phone_num.$error.pattern  && (editMemberForm.phone_num.$dirty)" class="help-block star-required">Enter a valid phone number.</p>
+                   			  <p class="star" ng-show="editMemberForm.phone_num.$error.minlength  && (editMemberForm.phone_num.$dirty)" class="help-block star-required">Minimum 10 numbers</p>
+		        </div>
+
+		 <!--         <div class="input-field col s6" ng-if="userinfo.mobileVerified==false">
+		          <input id="number" ng-model="userinfo.mobileNumberToVerify" type="text" class="validate" ng-pattern="/^[0-9,]{1,10}$/" maxlength="10" minlength="10" name="phone_num">
+		          <label for="number">Mobile Number</label>
+		          	 <p class="star" ng-show="editMemberForm.phone_num.$error.pattern  && (editMemberForm.phone_num.$dirty)" class="help-block star-required">Enter a valid phone number.</p>
+                  	  <p class="star" ng-show="editMemberForm.phone_num.$error.minlength  && (editMemberForm.phone_num.$dirty)" class="help-block star-required">Minimum 10 numbers</p>
+		        </div> -->
+		         <div class="input-field col s6" ng-if="relationurl" ng-init="userinfo.relation">
+		          <select class="browser-default" name="relation" ng-model="userinfo.relation" required="">
+
+					    <option value=""  selected>Relation</option>
+					    <option value="father">Father</option>
+					    <option value="mother">mother</option>
+					    <option value="brother">brother</option>
+					    <option value="sister">sister</option>
+					    <option value="husband">husband</option>
+					    <option value="wife">wife</option>
+					    <option value="son">son</option>
+					    <option value="daughter">daughter</option>
+					    <option value="father-in-law">father-in-law</option>
+					    <option value="mother-in-law">mother-in-law</option>
+					    <option value="son-in-law">son-in-law</option>
+					     <option value="daughter-in-law">daughter-in-law</option>
+					      <option value="uncle">uncle</option>
+					       <option value="aunt">aunt</option>
+					        <option value="cousin">cousin</option>
+					         <option value="friend">friend</option>
+					          <option value="other">other</option>
+					  </select>
+					  <span ng-show="submitted && editMemberForm.relation.$error.required">Required</span>
+		        </div>
+		         <div class="input-field col s6">
+		         	<input id="date" type="text"  ng-model="userinfo.birthday" formatted-date>
+		         	 <label for="date">DOB</label>
+		        </div>
+		          <div class="input-field col s12 m6">
+		          <div class="mdflft"><p>Gender</p></div>
+		          <div>
+				      <input class="with-gap" name="group1" value="male" ng-model="userinfo.gender" type="radio" id="test3"  />
+				      <label for="test3">Male</label>
+				      <input class="with-gap" name="group1" value="female" ng-model="userinfo.gender" type="radio" id="test2"  />
+				      <label for="test2">Female</label>
+				   </div>
+			    </div>
+
+			    <div class="input-field col s12 m6">
+		        <div class="mdflft"><p>Marital Status</p></div>
+				      <input class="with-gap" name="group2" ng-model="userinfo.maritalStatus" value="married" type="radio" id="test4"  />
+				      <label for="test4">Married</label>
+				      <input class="with-gap" value="single" name="group2" ng-model="userinfo.maritalStatus" type="radio" id="test5"  />
+				      <label for="test5">Single</label>
+			    </div>
+			      <div class="input-field col s6">
+			       <input id="height" ng-model="userinfo.height" name="heightg"  type="text" class="validate" ng-pattern="/^[0-9.]*$/">
+			           <span class="star" ng-show="editMemberForm.heightg.$error.pattern">Enter valid Height</span>
+			          <label for="height">Height</label>
+		        </div>
+		         <div class="input-field col s6">
+			          <input id="width" ng-model="userinfo.weight" name="weightd" type="text" class="validate" ng-pattern="/^[0-9.]*$/">
+			          <label for="width">Weight</label>
+			           <span class="star" ng-show="editMemberForm.weightd.$error.pattern">Enter valid Weight</span>
+		        </div>
+		         <div class="input-field col s6">
+			          <input id="Diet" maximum-words-validation="20" ng-model="userinfo.diet" name="diet" type="text" class="validate">
+			          <label for="Diet">Diet</label>
+			          	<span class="star" ng-show="editMemberForm.diet.$invalid">Allows to enter 20 words</span>
+		        </div>
+		        <div class="input-field col s6">
+			          <input id="foodallergies" maximum-words-validation="20" name="food" ng-model="userinfo.foodAllergies" type="text" class="validate">
+			          <label for="foodallergies">Food Allergies</label>
+			          <span class="star" ng-show="editMemberForm.food.$invalid">Allows to enter 20 words</span>
+		        </div>
+		         <div class="input-field col s12">
+			          <input id="medicalallergies" maximum-words-validation="20" name="medical" type="text" ng-model="userinfo.medicalAllergies" class="validate">
+			          <label for="medicalallergies">Medical Allergies</label>
+			          <span class="star" ng-show="editMemberForm.medical.$invalid">Allows to enter 20 words</span>
+		        </div>
+		         <div class="input-field col s6">
+		        	<div class="mdflft"><p>Asthma</p></div>
+		        	<!-- {{userinfo.asthma}} -->
+				      <input class="with-gap" name="group3" ng-model="userinfo.asthma" type="radio" id="test9" value=1 ng-checked="userinfo.asthma"/>
+				      <label for="test9">Yes</label>
+				      <input class="with-gap" name="group3" ng-model="userinfo.asthma" type="radio" id="test6"  value=0 ng-checked="userinfo.asthma"/>
+				      <label for="test6">No</label>
+			    </div>
+			     <div class="input-field col s6">
+		        	<div class="mdflft"><p>Diabetes</p></div>
+				      <input class="with-gap" name="group4" ng-model="userinfo.diabetes" value=1 type="radio" id="test7"  />
+				      <label for="test7">Yes</label>
+				      <input class="with-gap" name="group4" ng-model="userinfo.diabetes" value=0 type="radio" id="test8"  />
+				      <label for="test8">No</label>
+			    </div>
+	        </div>
+	         <div class="col s12 m12 l12 ">
+	          <a ng-click="updateuserdetail(userinfo);uploadimage(userinfo)" class="waves-effect waves-light btn md-reqbtn greenaccpt right mt20">Save Changes</a>
+	         </div>
+	     </form>   
+	     </div>
+	 </div>
+</section>
+        
+
+<!--*********PROFILE SECTION************-->
+<footer></footer>
+ <section>
+ <div material-modal data-modaltarget="mailmod" modalstatus="openmailmod"></div>
+		<div class="creatiseModal md-createnwentry" id="mailmod">
+		 <div class="modal-content md-modalcnt">
+		 <form name="newentryForm" novalidate="">
+    
+       <div class="md-cloasedbtn">
+      	 <a  material-modal-close><i class="fa fa-times" aria-hidden="true"></i></a>
+      </div>
+	      <div class="row">
+		     <div class="col l12 m12 s12">
+		     	<div class="input-field col s12 m12 l12">
+		          Please verify your email ID, in order to update profile, by following the link mailed to you.
+		        </div>
+		      	<div class="col s12 m12 l12">
+		      		<a material-modal-close class="waves-effect waves-light btn md-reqbtn greenaccpt right" ng-click="openmailmod=hide">GOT IT!</a>
+		      	</div>
+		     </div>
+	      </div>
+	      </form>
+  		 </div> 
+		</div>
+  </section>
+<script type="text/javascript">
+    $('.fixed-action-btn').openFAB();
+  $('.fixed-action-btn').closeFAB();   
+
+        $("#date").datepicker({
+        dateFormat: 'yy-mm-dd',
+        changeMonth: true,
+         maxDate: new Date(),
+        changeYear: true,
+        yearRange: '1950:+0',
+        defaultDate: new Date()
+    });
+</script>

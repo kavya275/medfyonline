@@ -1,0 +1,216 @@
+
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+
+<!--*********SUB MENU************-->
+<submenu></submenu>
+
+<!--*********PROFILE SECTION************-->
+<profileinfo userdetail="userinfo"></profileinfo>
+<!--*********5 BOX************-->
+<section class="md-fivebox">
+	<div class="container md-container5box">
+		<div class="row rw-btm">
+	        <div class="col s12 m12 l12">
+	        	<div class="md-idbox md-cbox1" material-modal data-modaltarget="menubarModal"  modalstatus="recordmod"  ng-click="openrecordmodal('check-up.png','checkup',1)">
+	        		<p class="rw-btm md-mt40"><img src="assets/images/boxicons/check-up.png"></p>
+	        		<p class="md-fiveboxtxt">Checkup</p>
+	        		<p class="md-addrecord">Add Record</p>
+	        	</div>
+	        	<div class="md-idbox md-cbox2" material-modal data-modaltarget="menubarModal"  modalstatus="recordmod"  ng-click="openrecordmodal('illness.png','illness',2)">
+	        		<p class="rw-btm md-mt40"><img src="assets/images/boxicons/illness.png"></p>
+	        		<p class="md-fiveboxtxt">Illnes</p>
+	        		<p class="md-addrecord">Add Record</p>
+	        	</div>
+	        	<div class="md-idbox md-cbox3" material-modal data-modaltarget="menubarModal"  modalstatus="recordmod"  ng-click="openrecordmodal('surgery.png','surgery',3)">
+	        		<p class="rw-btm md-mt40"><img src="assets/images/boxicons/surgery.png"></p>
+	        		<p class="md-fiveboxtxt">Surgery</p>
+	        		<p class="md-addrecord">Add Record</p>
+	        	</div>
+	        	<div class="md-idbox md-cbox4" material-modal data-modaltarget="menubarModal"  modalstatus="recordmod"  ng-click="openrecordmodal('medication.png','medication',4)">
+	        		<p class="rw-btm md-mt40"><img src="assets/images/boxicons/medication.png"></p>
+	        		<p class="md-fiveboxtxt">Medication</p>
+	        		<p class="md-addrecord">Add Record</p>
+	        	</div>
+	        	<div class="md-idbox md-cbox5"  material-modal data-modaltarget="menubarModal" modalstatus="recordmod" ng-click="openrecordmodal('immunization.png','immunization',5)">
+	        		<p class="rw-btm md-mt40"><img src="assets/images/boxicons/immunization.png"></p>
+	        		<p class="md-fiveboxtxt">Immunization</p>
+	        		<p class="md-addrecord">Add Record</p>
+	        	</div>
+	        </div>
+	      </div>
+	 </div>
+</section>
+<!--*********5 BOX************-->
+<section class="md-familymemebers">
+	<div class="container md-container5box">
+		<div class="row rw-btm">
+	        <div class="col s12 m12 l12">
+	        <h6 class="md-familyhding">Family Members</h6>
+	        </div>
+	        <div class="col s12 m12 l12">
+	        <!-- *******************Box 1**************************** -->
+	        	
+	        	<div class="md-idboxfamily" ng-repeat="familymem in userinfo.relatives">
+	        	<!-- {{familymem}} -->
+	        	<a ui-sref="viewhistory({userId:familymem._id,relId:familymem.relative._id})">
+	        		<div class="md-boxbagcolor">
+	        		</div>
+	        		<div>
+	        		
+	        		<!-- assets/images/defaulterror/default-image.jpg -->
+	        		<img src="assets/images/defaulterror/default-image.jpg" ng-if="!familymem.relative.profilePic" class="responsive-img md-cirlimg">
+	        			<img ng-if="familymem.relative.profilePic" ng-src="{{familymem.relative.profilePic}}" on-error="assets/images/defaulterror/default-image.jpg" class="responsive-img md-cirlimg">
+	        			<p class="md-btmtxt">{{familymem.relative.name}}</p>
+	        			<p class="md-btmtextsub">{{familymem.relation}}</p>
+	        		</div>
+	        		<div class="md-padalgn">
+		        		<div class="md-record">
+		        			<p class="md-rctxt"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;{{familymem.relative.recordCount}} &nbsp;Records</p>
+		        		</div>
+		        		<div class="ms-lastupdate">
+		        			<p class="md-rctxt">Last update</p>
+		        			<p class="md-rctxt">{{familymem.relative.modifiedTimestamp | date}}</p>
+			        	</div>
+			        </div>	
+			        </a>
+			        <!-- <button ng-click="removefm(familymem._id)">Remove</button> -->
+	        	</div>
+	        	 <!-- *******************Box 2**************************** -->
+	        	<!-- <div class="md-idboxfamily">
+	        		<div class="md-boxbagcolor">
+	        		</div>
+	        		<div>
+	        			<img src="assets/images/defaulterror/default-image.jpg" class="responsive-img md-cirlimg">
+	        			<p class="md-btmtxt">Name goes here</p>
+	        			<p class="md-btmtextsub">Daughter</p>
+	        		</div>
+	        		<div class="md-padalgn">
+		        		<div class="md-record">
+		        				<p class="md-rctxt"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;4 &nbsp;Records</p>
+		        		</div>
+		        		<div class="ms-lastupdate">
+		        			<p class="md-rctxt">Last update</p>
+		        			<p class="md-rctxt">May 27,2016</p>
+			        	</div>
+			        </div>	
+	        	</div> -->
+	        	 <!-- *******************ADD BUTTON**************************** -->
+	        	<div material-modal data-modaltarget="addfamilyModal" class="cursorpntr">
+	        	 <div class="md-idboxfamily">
+	        		<div class="md-boxbagcolor">
+	        		</div>
+	        		<div>
+	        			<img src="assets/images/defaulterror/add-family.png" class="responsive-img md-cirlimg">
+	        			<p class="md-btmtxt">Add Family</p>
+	        		</div>
+	        	</div>
+	        	</div>
+	        </div>
+	      </div>
+	 </div>
+</section>
+ 
+<!-- Modal Add Family Member Structure -->
+  <div class="creatiseModal md-createnwentry" id="addfamilyModal">
+    <div class="modal-content md-modalcnt">
+      <div class="md-cnthading">
+      	<p class="modal-heading">Add Family Member</p>
+      </div>
+      <div class="md-cloasedbtn">
+      	 <div material-modal-close><i class="fa fa-times" aria-hidden="true"></i></div>
+      </div>
+     <div class="row">
+	     <div class="col l12 m12 s12">
+	     	 <a ui-sref="addmember" material-modal-close>
+			     <div class="col l12 m12 s12">
+			     	<div class="col l2 m2 s4 center">
+			     		<div class="md-popupcircle md-popcolor1">
+			     			<i class="fa fa-user-plus" aria-hidden="true"></i>
+			     		</div>
+			     	</div>
+			     	<div class="col l10 m10 s8">
+			     		<p>Create New Member</p>
+			     	</div>
+			     </div>
+		     </a>
+		     <a ui-sref="existingmember" material-modal-close>
+			     <div class="col l12 m12 s12">
+			     	<div class="col l2 m2 s4 center">
+			     		<div class="md-popupcircle md-popcolor2">
+			     			<i class="fa fa-user-plus" aria-hidden="true"></i>
+			     		</div>
+			     	</div>
+			     	<div class="col l10 m10 s8">
+			     		<p>Add Existing Member</p>
+			     	</div>
+			     </div>
+		     </a>
+    	 </div>
+    </div>
+  </div>
+ </div>
+  
+<!-- Modal Menubar  Structure -->
+  <div class="creatiseModal md-createnwentry" id="menubarModal">
+    <div class="modal-content md-modalcnt">
+    <form name="recordform" novalidate="">
+      <div class="md-cnthading">
+        <p class="modal-heading">Add Record</p>
+      </div>
+      <div class="md-cloasedbtn">
+         <div material-modal-close ><i class="fa fa-times" aria-hidden="true"></i></div>
+      </div>
+     <div class="row">
+     <!-- {{recordtype}}== -->
+       <div class="col l12 m12 s12">
+             <div class="col l2 m2 s2">
+               <div  class="btn-floating md-addrecordmt20 md-cbox{{clsno}} center"><img src="assets/images/boxicons/{{imgname}}" class="md-iconimg"></div>
+            </div>
+             <div class="input-field col s8 m8 l8">
+               <input id="discription" name="desc" type="text" ng-model="record.desc" class="validate md-input" required="">
+                <label for="discription">Description</label>
+                <span ng-show="submitted && recordform.desc.$error.required" class="star"> please enter description.</span>
+             </div>
+             <div class="input-field col s8 m8 l8 offset-m2 offset-l2 ">
+               <input id="date" type="text" ng-model="record.date" formatted-date>
+                <label for="date">Date</label>
+             </div>
+            <!--  <div class="col l12 m12 s12">
+               <img src="assets/images/defaulterror/default-image.jpg" class="md-addreportmenu">
+             </div> -->
+            <!--   <div class="col l6 m6 s12">
+                  <a class="waves-effect waves-light btn md-reqbtn greenaccpt">Add a Report</a>
+              </div> -->
+               <div class="col l6 m6 s12">
+              <input type="file" id="mulimg"  filemul-upload my-upload multiple="">
+                  <!-- <a class="waves-effect waves-light btn md-reqbtn greenaccpt">Add a Report</a> -->
+              </div>
+              <div class="col l6 m6 s12">
+                  <a ng-click="submitted=true;recordform.$valid 
+                  && addrecord(record,recordtype)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Create</a>
+              </div>
+       </div>
+    </div>
+    </form>
+  </div>
+ </div>
+
+<footer></footer>
+
+<script>
+  $(document).ready(function(){
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+    $(".button-collapse").sideNav();
+	$('ul.tabs').tabs();
+
+
+
+        $("#date").datepicker({
+        dateFormat: 'yy-mm-dd',
+        maxDate: new Date(),
+        defaultDate: new Date()
+    });
+  });
+</script>

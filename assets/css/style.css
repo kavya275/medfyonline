@@ -1,0 +1,1479 @@
+html,body
+{
+    
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+    color: #000;
+    background-color: #f1f2f3;
+   font-family: 'Roboto', sans-serif;
+}
+body *{
+    transition: all 0.8s ease;
+}
+pre{
+    font-family: 'Roboto', sans-serif;
+}
+audio,
+canvas,
+img,
+video
+{
+    vertical-align: middle;
+}
+fieldset
+ {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+
+h1, h2, h3, h4, h5, h6
+{
+    margin:0px;
+    line-height: 1.2;
+}
+ul,ol
+{
+    padding:0px;
+    margin:0px;
+}
+a
+{
+    color: #289AD6;
+    /*text-decoration: none;*/
+}
+.clear
+ {
+
+    clear: both;
+}
+
+.no-padding
+{
+    padding-left: 0px!important;
+    padding-right: 0px!important;
+}
+.no-margin
+{
+    margin-right: 0px!important;
+    margin-left: 0px!important;
+}
+.rw-btm
+{
+    margin-bottom: 0px!important;
+}
+.mt10
+{
+    margin-top: 10px;
+}
+.mbt10
+{
+    margin-bottom: 10px;
+}
+.txtalign-center
+{
+    text-align: center;
+}
+.lnmlogi-img
+{
+        height: 60px;
+    margin-left: 67px;
+}
+nav.lnm-homenav
+{
+    color: black!important;
+    background-color: white!important;  
+}
+nav.lnm-homenav ul a
+{
+  color: gray!important; 
+      padding: 0 30px!important; 
+}
+.side-icon{
+    color: gray !important;
+    font-size: 33px!important;
+    margin-left: 10px!important;
+}
+.mt0px
+{
+        margin-top: 0px;
+}
+.lmn-topmnht
+{
+    min-height: 279px;
+}
+.lmn-stpicon
+{
+    font-size: 25px!important;
+    color:lightgrey;
+   /* padding: 10px;* style="position:absolute;background-color: red;height: 15px;width: 15px;border-radius: 50%;line-height: 14px;font-size: 10px;text-align: center;color: white;margin-top: 15px;z-index: 100;margin-left: 12px;"*/
+}
+.md-ntfction
+{
+    position: absolute;
+    background-color: red;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    line-height: 14px;
+    font-size: 9px;
+    text-align: center;
+    color: white;
+    margin-top: 15px;
+    z-index: 100;
+    margin-left: 12px;
+}
+.lnm-btnlft
+{
+    padding:0px !important;
+   /* height:25px;
+    width:25px;*/
+}
+.lnm-btnlft:hover
+{
+   background-color: transparent;
+}
+/*---------------------DOOPDOWN CSS STRAT----------------*/
+
+.dropdown {
+    position: relative;
+    padding:0px 15px;
+    cursor: pointer;
+}
+
+.dropdown ul,.notofication_dropdown ul {
+
+    position: absolute;
+
+    right: 0;
+
+    z-index: 999;
+
+    top:64px;
+
+    -webkit-transition: all 0.9s ease;
+
+    transition: all 0.5s ease;
+
+    -webkit-transform: scale(0);
+
+    transform: scale(0);
+
+    min-width: 200px;
+
+    background-color: #ffffff;
+
+    -webkit-transform-origin: 0 0;
+
+    transform-origin: 0 0;
+
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
+
+}
+
+.dropdown ul li {
+
+    display: block;
+   /* height: 40px!important;*/
+    width: 100%;
+}
+
+
+
+.dropdown ul li a {
+
+    width: 100%;
+
+    padding: 0em 18px;
+
+    display: inline-block;
+
+    white-space: pre;
+
+    color: #9d0000;
+
+    box-sizing: border-box;
+
+}
+
+.dropdown ul li a:hover {
+
+    background: #d3d3d3;
+
+    color: #000000;
+
+}
+
+.dropdown:hover ul,.notofication_dropdown.show_notification ul {
+
+    -webkit-transform: scale(1);
+
+    transform: scale(1);
+
+}
+
+
+
+.dropdown ul li ul
+
+{
+
+    left: 100%;
+
+    top: -65px;
+
+    display: none;
+
+    float: left;
+
+    position: relative;
+
+}
+
+
+
+.dropdown ul .sub-menu:hover ul
+
+{
+
+    display: block;
+
+}
+
+.dropdown ul .sub-menu ul li
+
+{
+
+    display: block;
+
+
+
+}
+
+.dropdown ul li ul li a
+
+{
+
+    width: 100%;
+
+    padding: 0em 18px;
+
+    white-space: pre;
+
+    color: #9d0000;
+
+    box-sizing: border-box;
+
+}
+/***********submenu css****************************/
+.md-submenubg
+{
+    background-color: #606060;;
+    padding: 15px;
+}
+.md-submenuis
+{
+    font-size:25px !important;
+}
+.md-submenuicon
+{
+    text-align: center;
+    color: white;
+}
+.md-submenutxt
+{
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 12px;
+}
+.md-submenuhover:hover .md-submenuicon
+{
+    color:#48bdab !important;
+    cursor: pointer;
+}
+.md-profilename
+{
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 4px;
+}
+.md-pfsub
+{
+     margin-top: 2px;
+    margin-bottom: 2px;
+    color: #4FD2C2;
+    font-size: 14px;
+}
+.md-emailage
+{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+.md-complete
+{
+    margin-top: 2px;
+    font-size: 12px;
+    color: gray;
+}
+.md-profilepercemt{
+    margin-top:22px;
+    margin-bottom: 1px;
+}
+.md-prfviewbtn
+{
+    background-color: #00BC97;
+    padding-left: 8px;
+    padding-right: 9px;
+
+}
+/*---------------------PROFILE CSS STRAT----------------*/
+.md-profilesec
+{
+    padding: 15px
+}
+.md-box{
+     background-color: white;
+    padding: 10px;
+    border:1px solid lightgray;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 2px 3px 0 rgba(0,0,0,0.12);
+
+}
+.md-profilecr
+{
+      
+        border-radius: 50%;
+        height: 130px;
+        width: 130px; 
+}
+.md-bordert
+{
+    border-right:2px solid lightgray;
+}
+.md-container {
+    width: 80% !important;
+}
+.md-profilpercent
+{
+    margin-top: 27px;
+    margin-left: 15px;
+}
+/*---------------------FIVE CSS STRAT----------------*/
+.md-fivebox
+{
+    padding: 15px;
+}
+.md-container5box {
+    width: 90% !important;
+}
+.md-idbox
+{
+    
+    padding: 10px;
+    border: 1px solid lightgray;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    width: 215px;
+    height: 190px;
+    float: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+        cursor: pointer;
+
+}
+.md-cbox1
+{
+    background-color: #54acd2;
+    color:white;
+}
+.md-cbox2
+{
+    background-color: #9794ff;
+    color:white;
+}
+.md-cbox3
+{
+    background-color: #ffb258;
+    color:white;
+}
+.md-cbox4
+{
+    background-color: #fc7a58;
+    color:white;
+}
+.md-cbox5
+{
+   background-color: #fc616f;
+    color:white;
+}
+.md-fiveboxicon
+{
+        font-size: 35px !important;
+    margin-bottom: 2px;
+}
+.md-fiveboxtxt
+{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+.md-addrecord
+{
+    margin-top: 2px;
+    font-size: 12px;
+}
+.md-mt40{
+    margin-top: 40px;
+}
+.md-cirlimg
+{
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    bottom: 40px;
+    position: relative;
+}
+/*---------------------FOOTER CSS STRAT----------------*/
+
+.md-familymemeber
+{
+    padding: 15px;
+    background-color: white;
+    min-height: 350px;
+}
+.md-idboxfamily
+{
+    background-color: white;
+    border: 1px solid lightgray;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+    width: 215px;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    text-align: center;
+    min-height: 233px;
+}
+.md-boxbagcolor{
+       background-color: #4fd2c2;
+    height: 85px;
+    padding: 0px!important;
+}
+.md-btmtxt
+{
+    margin-top: -35px;
+    margin-bottom: 4px;
+}
+.md-btmtextsub
+{
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+.md-familyhding
+{
+    margin-bottom: 20px;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.md-record{
+
+    text-align: left;
+    float: left;
+
+}
+.md-padalgn
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+}
+.ms-lastupdate
+{
+        float: right;
+
+}
+.md-rctxt
+{
+    text-align:right !important;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 13px;
+
+}
+/*-------------------------------------*/
+.md-timelinecontainer
+{
+    width:90% !important;
+}
+.md-monthname
+{
+   /* content: "december";*/
+    width: 110px;
+    height: 33px;
+    border: 2px solid #00BC97;
+    position: absolute;
+    left: -52px;
+    padding: 3px;
+    top: -30px;
+    background-color: #00BC97;
+    color: white;
+}
+.md-timelineday li
+{
+    width: 22px;
+    height: 22px;
+    background-color: #ccc;
+    position: absolute;
+    top: 45%;
+    margin-top: -3px;
+    left: -45px;
+}
+.md-timelinecircle
+{
+   
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    text-align: center;
+    /*padding-top: 6px;*/
+    float: left;
+    margin-bottom: 2px;
+}
+.md-tmlimg
+{
+        width: 40px;
+}
+.md-timelinecnt
+{
+    float: left;
+    margin-left: 10px;
+    background-color: #ebebeb;
+    width: 90%;
+   
+    padding: 4px;
+    font-size: 15px;
+}
+.md-timelineline
+{
+    border-bottom: 1px solid lightgray;
+    clear: both;
+    padding-top: 4px;
+    margin-bottom: 4px;
+    width: 96%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.md-imagereport
+{
+   width: 70px;
+    height: 70px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.md-report
+{
+    float: left;
+}
+.md-reportlastupdate
+{
+    float: right;
+    font-size: 14px;
+    /* text-align: right; */
+    margin-top: 55px;
+    margin-right: 33px;
+    right: 22px;
+    /* margin-bottom: 0px; */
+}
+.md-checkupcir
+{
+     background-color: #54ACD2;
+}
+.md-checkupleftline
+{
+     border-left: 4px solid #54ACD2;
+}
+.md-illinescir
+{
+     background-color: #9794FF;
+}
+.md-illinesleftline
+{
+     border-left: 4px solid #9794FF;
+}
+.md-surgerycir
+{
+     background-color: #FFB258;
+}
+.md-surgeryleftline
+{
+     border-left: 4px solid #FFB258;
+}
+.md-medcir
+{
+     background-color: #FC7A58;
+}
+.md-medleftline
+{
+     border-left: 4px solid #FC7A58;
+}
+.md-immcir
+{
+     background-color: #FC616F;
+}
+.md-imnleftline
+{
+     border-left: 4px solid #FC616F;
+}
+
+/*---
+/*---------------------FOOTER CSS STRAT----------------*/
+.lnm-footer
+{
+
+    background-color: #34495E;
+    padding: 10px;
+    color:white;
+
+}
+.lnmfooterlog-img
+{
+        height: 32px;
+    
+}
+.lnm-footerlink 
+{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+
+}
+.lnm-mt10
+{
+        margin-top: 17px;
+         margin-bottom: 0px;
+             font-size: 14px;
+}
+.lnm-mt10 a
+{
+    color: white;
+}
+
+.footer-txt
+{
+    font-size: 12px;
+}
+.tabs .indicator
+{
+        background-color:#2BBBAD!important;
+            height: 3px !important;
+}
+.tabs .tab a
+{
+    color: black;
+}
+ .tabs .tab a:hover
+
+{
+    color: black !important;
+}
+.tabs
+{
+        border: 1px solid lightgray;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 2px 3px 0 rgba(0,0,0,0.12);
+}
+.md-mt5
+{
+       margin-top: 5px;
+ 
+}
+.md-navnotificatin
+{
+    text-align: justify;
+    font-size: 15px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.md-navdate
+{
+    font-size: 10px;
+    text-align: right;
+}
+/*-------------------View other history-------------------------------*/
+.md-viewhistrorybg
+{
+    padding: 15px;
+    background-color: white;
+}
+ .md-onoff
+ {
+    border: 1px solid #6BAFA8;
+    width: 100%;
+    clear: both;
+        cursor: pointer;
+    /* padding: 10px; */
+    height: 37px;
+    /* margin-left: 10px; */
+ }
+ .md-allswitch
+ {
+        float: left;
+    position: relative;
+    /* margin-left: 10px; */
+    margin-right: 10px;
+    color: black;
+    /* background-color: #6BAFA8; */
+    width: 71px;
+    height: 35px;
+    /* font-size: 11px; */
+    /* margin-top: 2px; */
+    text-align: center;
+ }
+ .md-pendingswitch
+ {
+    float: left;
+    position: relative;
+    width: 67px;
+    height: 33px;
+ }
+ .md-active
+ {
+      
+    color: white;
+    background-color: #50D2C2 !important;
+    /*background-color: #6BAFA8;*/
+   
+ }
+ .md-pendingtxt
+ {
+    margin-top: 6px;
+    margin-bottom: 3px;
+    font-size: 15px;
+ }
+ .md-serchbox
+ {
+    border: 1px solid lightgray !important;
+    height: 2em !important;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.16), 0 2px 3px 0 rgba(0,0,0,0.12) !important;
+ }
+ .md-ftl
+ {
+    float: left;
+    width:100%;
+ }
+ .md-lefticon
+ {
+    float: left;
+    margin-left: -32px;
+    color: gray;
+    margin-top: 5px;
+ }
+ .md-vasearch
+ {
+    color: #6BAFA8;
+ }
+ .md-viewhistroryimg
+ {
+     border-radius: 50%;
+    height: 70px;
+    width: 70px;
+
+ }
+ .md-cnthading
+ {
+    background-color: #ebebeb;
+    width:100%;
+    height:40px;
+     float: left;
+ 
+
+ }
+ .modal-heading
+ {
+    margin-top:0px;
+    margin-bottom: 0px;
+    padding: 10px;
+    color: #4FD2C2; 
+}
+ .md-cloasedbtn
+ {
+    float: right;
+     margin-top: -32px;
+    margin-right: 14px;
+ }
+ .md-popupcircle
+ {
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    border-radius: 50%;
+    color: white !important;
+    line-height: 45px;
+    font-size: 25px;
+    margin-top: 10px;
+ }
+ .md-popcolor1
+ {
+    background-color: #54acd2;
+ }
+ .md-popcolor2
+ {
+    background-color: #fc7a58;
+ }
+ .md-modalwidth
+ {
+    width: 30% !important;
+ }
+ .md-modalcnt
+ {
+    padding: 0px !important;
+ }
+ .md-bordertopbtm
+ {
+    
+    padding: 14px !important;
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    width: 99%;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ /*.md-bordertopbtm:first-child 
+ {
+     border-top: 2px solid lightgray;
+ }
+ .md-bordertopbtm:last-child 
+ {
+     border-top: 2px solid lightgray;
+ }*/
+ .md-floatleft
+ {
+    float: left;
+ }
+ .md-viewhstyname
+ {
+    margin-left: 10px !important;
+    font-size: 15px;
+    margin-top: 21px;
+ }
+ .md-viewhstynameother {
+    margin-left: 10px !important;
+    font-size: 15px;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    text-align: left !important;
+}
+.md-sharedview
+{
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 13px;
+    margin-left: 10px !important;
+     text-align: left !important;
+}
+.md-sharedview.pending
+{
+    color: red;
+}
+.md-sharedview.accept
+{
+    color: #6BAFA8;
+}
+.md-reqbtn
+{
+    padding-left: 8px;
+    padding-right: 8px;
+    font-size: 16px;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    line-height: 21px;
+    text-transform: none !important;
+    box-shadow:none !important;
+    border-radius: 0px !important;
+}
+.md-fourswitch
+{
+    background-color: #48BDAE;
+    float: left;
+    height: 35px;
+    border-right:1px solid #6BAFA8;
+}
+.md-switchtpbtm
+{
+        margin: 5px 19px 5px 19px;
+        font-size: 15px;
+        text-align: center;
+}
+.mtn-brt
+{
+    border-right:none !important;
+}
+.mt16
+{
+    margin-top: 16px;
+}
+.md-reqbtn.greenaccpt
+{
+    background-color: #48bdad !important;
+}
+.md-reqbtn.reddel
+{
+    background-color: #fc616f !important;
+}
+
+ .md-pnding-red
+ {
+    color: red !important;
+ }
+ .md-menubar
+ {
+    font-size: 20px !important;
+ }
+ .checkup-icon
+ {
+    background-color: #54ACD2 !important;
+ }
+ .illnes-icon
+ {
+    background-color: #9794FF !important;
+ }
+ .surgery-icon
+ {
+    background-color: #FFB258 !important;
+ }
+ .medication-icon
+ {
+    background-color:#FC7A58 !important;
+ }
+ .immunization-icon
+ {
+    background-color: #FC616F !important;
+ }
+.md-iconimg
+{
+    width: 20px;
+    height: 20px
+}
+/*----------------Form Css-------------------------*/
+.show_login,.show_signUp{
+
+    cursor: pointer;
+}
+.md-profileeditform
+{
+    padding: 15px;
+}
+.mdflft
+{
+    float: left;
+}
+.lnm-login-signup {
+    background-image: url(../images/sign-up-in-bg.jpg);
+    height: 550px;
+    padding: 15px;
+    background-size: cover;
+}
+.md-newform
+{
+    border: 1px solid lightgray;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: -3px;
+    height: 65px;
+}
+.md-formboxtxt
+{
+    cursor: pointer;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    font-size: 16px;
+}
+.md-formdelet
+{
+    font-size: 17px;
+    color: red;
+    cursor: pointer;
+}
+.md-mdleft
+{
+        position: absolute;
+      right: 20px;
+        display: none;
+}
+.md-newform:hover .md-mdleft
+{
+    display: block;
+}
+.md-postion
+{
+     position: relative;
+}
+.md-formbox1
+{
+     background-color: #00ADCF;
+     color: white;
+}
+.md-formbox2
+{
+     background-color: #FFFFFF;
+     color: #00C0A9;
+
+}
+.md-formbox3
+{
+     background-color: #615F5A;
+     color: #FFAD4D;
+}
+.md-formbox4active
+{
+     background-color: #FFAD4D;
+     color:  #615F5A;
+}
+
+.md-form5active{
+      background-color: #FFAD4D;
+     color:  white;
+    font-weight:normal;
+    margin-bottom:5px;
+    border-bottom: 2px solid;
+    display: inline-block;
+}
+.md-formboxonhv
+{
+    background-color:#EDEBE9;
+    padding: 10px !important;
+    border: 1px solid lightgray;
+}
+.md-formhoverbox
+{
+    background-color:#FF6E49;
+    text-align: center;
+    color: white;
+    padding: 2px ;
+    cursor: pointer;
+}
+.md-formwhite
+{
+    background-color: white;
+    text-align: center;
+        padding: 1px;
+
+}
+.md-fromdate
+{
+     background-color: #00C0A9;
+      padding: 6px;
+      position: relative;
+}
+.md-dateicon
+{
+    color: white;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    font-size: 12px;
+}
+.md-formdai
+{
+    font-weight: 600;
+}
+.md-formpar
+{
+    margin-top:3px;
+    margin-bottom: 3px;
+    font-size: 12px;
+}
+.md-formplus
+{
+        font-size: 30px !important;
+}
+.mbt20
+{
+    margin-bottom: 20px;
+}
+.md-newentrybox
+{
+    /*display: none;*/
+}
+.md-exitimgmemb
+{
+    float: left;
+}
+.exit-img
+{
+     height: 65px;
+    width: 65px;  
+}
+.md-exitname
+{
+    float: left;
+    margin-left: 10px;
+    font-size: 18px;
+}
+.md-extnamerec
+{
+    margin-bottom: 5px !important;
+    margin-top:5px !important 
+}
+.md-extrecord
+{
+   background-color: #fec9cf;
+    color: #bb868c;
+    border-radius: 15px;
+    font-size: 10px;
+    height: 19px;
+    text-align: center;
+    width: 65px;
+    line-height: 17px;
+}
+.md-input
+{
+      margin: 0 0 6px 0 !important;  
+}
+.md-newenterymmhg
+{    margin-top: 40px;
+    margin-bottom: 3px;
+}
+.md-familymemebers
+{
+    padding: 10px;
+}
+.md-mt25
+{
+    margin-top:25px;
+}
+.md-footerptf
+{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 15px;
+    text-align: center;
+    color: white !important;
+}
+.md-createnwentry
+{
+    width: 35% !important;
+    max-height: 98% !important;
+    height:none !important;
+}
+.md-addrecordmt20
+{
+    margin-top: 20px;
+}
+.md-addreportmenu
+{
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
+.md-containerpplcy {
+    width: 90% !important;
+    font-size: 15px;  
+    text-align: justify;
+}
+.md-pplcyheading
+{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: 600;
+
+}
+.md-mtspc
+{
+     margin-top: 5px;
+    margin-bottom: 5px;
+}
+.md-aboutus
+{
+    padding: 15px;
+    background-color: white;
+}
+.aboutcontainer
+{
+        width: 85% !important;
+}
+.md-features
+{
+    background-image: url(../images/feature.jpg);
+    min-height: 421px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 12px;
+}
+.md-featutxt
+{
+    margin-top: 11px;
+    margin-bottom: 3px;
+    color: white;
+    text-align: justify;
+    font-size: 16px;
+}
+.md-featurefive
+{
+    margin-top: 25px;
+}
+.md-featireheading
+{
+    color: white;
+    font-size: 25px;
+}
+.md-aboutcnt
+{
+    text-align: justify;
+    font-size: 18px;
+
+}
+.md-aboutheading
+{
+    font-size: 25px;
+}
+.knw-mt
+{
+    margin-top:20px;
+}
+.md-slidersignup
+{
+    height: 20px;
+    width: 100px;
+    background-color: white;
+    padding: 10px;
+    border:2px solid white;
+    color: #00c0a9;
+    /* margin-top: 10px; */
+    border-radius: 4px  0px 0px 4px;
+    cursor: pointer;
+}
+.md-slidersignin
+{
+  height: 20px;
+  width: 100px;
+  border:2px solid white;
+  border-left: none;
+  padding: 10px;
+  color: white;
+  border-radius: 0px  4px 4px 0px;
+  cursor: pointer;
+    /* margin-top: 10px; */
+   
+}
+.md-outerhome
+{
+    background-color: transparent;
+    box-shadow:none !important;
+}
+.md-navheight
+{
+        height: 0px !important;
+        background: transparent !important;
+}
+.md-footericon
+{
+    margin-left:10px;
+    margin-right: 10px;
+    cursor: pointer;
+    color: white !important;
+}
+/*---------------------SLIDER CSS STRAT----------------*/
+.lnm-morebtn
+{
+
+    background-color: white!important; 
+    color: black!important; 
+    font-size: 15px!important; 
+}
+.mttop100
+{
+    margin-top: 100px;
+}
+.lmn-sldicon
+{
+    
+    height:50px !important;
+    width:50px !important;
+    background-repeat: no-repeat;
+}
+
+.slider .slides {
+    background-color: #414655;
+}
+.md-futurecircle
+{
+     float: left;
+    background-color: #00C0A9;
+    border-radius: 50%;
+}
+.md-timelineeditdelt
+{
+    display: none;
+    position: absolute;
+    float: left;
+        right: 7px;
+
+}
+.timeline li:hover .md-timelineeditdelt
+{
+    display: block;
+    cursor:pointer;
+}
+.close_toast
+{
+    float: left !important;
+}
+.md-whiteframe-2dp {
+    padding: 12px;
+    position: relative;
+    margin-top: 10px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12);
+}
+.notification-date
+{
+    font-size: 10px;
+    right: 10px;
+    position: absolute;
+    top: 4px;
+    color: black;
+    text-align: right;
+}
+.md-containernotifact {
+    width: 75% !important;
+    font-size: 15px;
+    text-align: justify;
+}
+.md-notificationtxt
+{
+    margin-bottom: 3px;
+    margin-top:3px;
+    line-height: 19px;
+}
+.md-borderbt
+{
+    border: 1px solid #ebebeb;
+    clear:both;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.md-acceptbtn
+{
+    text-align: center;
+    height: 30px;
+    width: 68px;
+    background-color: #6BAFA8;
+    color: white;
+    line-height: 28px;
+    border-radius: 4px;
+   /* margin-left: auto;
+    margin-right: auto;*/
+}
+.mdfy-minheight i
+{
+    line-height: 28px !important;
+    
+}
+.mdfy-minheight
+{
+    min-width: 350px !important;
+}
+.mdfy-mbt
+{
+    margin-bottom: 250px;
+}
+.mdfy-searc
+{
+        border: none;
+    background-color: white;
+}
+.star{
+      color: red !important;
+   display: block !important;
+  margin-top: 5px !important;
+  margin-bottom: 10px !important;
+  font-size: 13px;
+}
+.starcolor{
+     color: red ;
+}
+.ui-datepicker-title select{
+  display: inline-block !important; 
+  height: 30px;
+}
+.md-iconimgrecord {
+    width: 40px;
+    height: 40px;
+}
+
+.other_records .timeline li:after{
+    content: none;
+}
+.cursorpntr{
+       cursor: pointer;
+}
+.record_img_holder{
+    height: 100px;
+    overflow: auto;
+}
+.record_img_edit{
+    position: relative;
+    float: left;
+    margin-left:10px;
+    padding-right:5px;
+    border-right:1px solid lightgray;
+}
+.md-myformdel
+{
+        float: left;
+       
+
+}
+.md-editdel
+{
+    margin-left: 4px;
+    margin-right: 4px;
+    cursor: pointer;
+    /* display: none;*/
+}
+.md-dateicon_holder{
+    top:0px;
+    right:0px;
+    display: none;
+    position: absolute;
+}
+.hover-editdel:hover .md-dateicon_holder
+{
+   
+    display: block;
+
+}
+.show_signUp,.show_login{
+    color:#289AD6 !important;
+}
+.lmn-forgot{
+color: #289AD6!important
+}
+/*.delete_report{
+
+    display: none;
+    position: absolute;
+}*/
+.report_img_del
+{
+   left:0px !important;opacity:1 !important ;position: absolute !important;
+}
+.report_spl {
+      background-image: url('../images/report.png');
+}
+.popup_buttons{
+    position: relative;
+    float: left;
+    cursor: pointer;
+    bottom: 0px;
+    background-size:cover;
+    width: 22px;
+    height:22px;
+    margin-left:6px;
+}
+.mf-verfpd
+{
+    padding: 15px !important;
+}

@@ -1,0 +1,37 @@
+
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+
+<!--*********SUB MENU************-->
+<submenu></submenu>
+
+<!--*********PROFILE SECTION************-->
+ <!-- **********FORM****************** -->
+
+ <!-- {{userinfo.profilePic}}==== -->
+ <section class="md-profileeditform">
+	<div class="container ">
+		<div class="row">
+		<div class="md-box col s12 m6 l6 offset-m3 offset-l3  mf-verfpd">
+		<center><p>Resend OTP</p></center>
+		<form>
+	        <div class="col s12 m12 l12 ">
+		<div class="input-field col s12">
+		{{userdetail.email}}
+		          <!-- <input  id="first_name" ng-model="userdetail.email" type="text" class="validate">
+		          <label for="first_name">Email</label> -->
+		        </div>
+		        <div class="input-field col s12">
+		          <input  id="first_name" ng-model="otp.password" type="password" class="validate">
+		          <label for="first_name">Password</label>
+		        </div>
+		        </div>
+		            <div class="col s12 m12 l12 ">
+	          <a ng-click="verifyotp('resend',otp,userdetail.email)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Resend</a>
+	         </div>
+		  </form>
+		</div>
+	</div>
+</div>
+</section>
+<footer></footer>

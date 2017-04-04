@@ -1,0 +1,279 @@
+
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+
+<!--*********SUB MENU************-->
+<submenu></submenu>
+
+<section class="md-viewhistrorybg">
+	<div class="container md-timelinecontainer">
+    <div class="row">
+	   <div class="col l4 m4 s12"> 
+            <div class="md-onoff md-switchcenter">
+               <!--  <div class="md-allswitch md-active">
+                    <p class="md-pendingtxt">All</p>
+                </div>
+                 <div class="md-pendingswitch">
+                    <p class="md-pendingtxt">Pending</p>
+                </div>
+                 <div>
+                    <p>Pending</p>
+                </div>
+                 <div>
+                    <p>Pending</p>
+                </div> -->
+               <!--  <div class="md-fourswitch">
+                   <p class="md-switchtpbtm">All</p>
+                </div> -->
+                <div class="md-fourswitch" ng-class="{'md-active':requestType=='pending'}" ng-click="getotherhistory('pending')">
+                    <p class="md-switchtpbtm">Pending</p>
+                </div>
+                <div class="md-fourswitch " ng-class="{'md-active':requestType=='approved'}"  ng-click="getotherhistory('approved')">
+                   <p class="md-switchtpbtm">Shared</p>
+                </div>
+                <div class="md-fourswitch mtn-brt" ng-class="{'md-active':requestType=='sharedwithuser'}" ng-click="getotherhistory('sharedwithuser')">
+                   <p class="md-switchtpbtm">Shared with me</p>
+                </div>
+            </div> 
+       </div>
+       <div class="col l8 m8 s12 ">
+       <form name="searchForm" ng-submit="searchby(search)">
+            <div class="input-field col s12 l6 offset-l6 m6 offset-m6 mt0px">
+             <div class="md-ftl">
+                <input id="email" type="text" ng-model="search" class="validate rw-btm md-serchbox" placeholder="Search by PhoneNumber or Emailid...">
+              </div>
+               <!-- ng-click="searchby(search)" -->
+             <div class="md-lefticon">
+             <button type="submit" class="mdfy-searc">
+               <i class="fa fa-search md-vasearch" aria-hidden="true"></i>
+             </button>
+                 
+            </div>
+            </div>
+      </form>
+       </div>
+       <!-- ng-if="historylist.length!=0" -->
+        <div class="col l12 m12 s12" >
+        <p ng-if="requestType=='sharedwithuser'">
+          {{historylist.length}} people have shared records with you
+        </p>
+         <p ng-if="requestType=='approved'">
+           you have shared records with {{historylist.length}} people
+        </p>
+         <!--    <p>Today</p> -->
+       </div>
+
+       <div class="col l12 m12 s12 md-bordertopbtm"   ng-repeat="list in historylist.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+       <!-- ng-hide="$first" -->
+       <!-- ui-sref="recorddetails({'userId':list._id})" -->
+       <div  >
+       <!-- {{list}} -->
+<!-- {{requestType}}==
+ -->       <div ng-if="requestType=='approved'" ng-hide="list.user==null" >
+   
+            <div class="col l3 m3 s8">
+              <div class="md-floatleft">  
+                <img on-error="assets/images/defaulterror/default-image.jpg" ng-src="{{list.user.profilePic}}"  class="md-viewhistroryimg">
+              </div>
+              <div  class="md-floatleft">
+                <p class="md-viewhstyname">{{list.user.name}}</p>
+              </div>
+
+            </div>
+            <div class="col l3 m3 s4 center">
+                  <p class="md-viewhstyname">{{list.recordCount}} Records</p>
+            </div>
+                <div  class="col l3 m3 s4 center">
+                <p class="md-viewhstyname">{{list.createdTimestamp | timeago}}</p>
+              </div>
+            </div>
+             <div ng-if="requestType=='pending' || requestType=='sharedwithuser'" ng-hide="list.friend==null" ui-sref="recorddetails({'userId':list.friend._id})" >
+
+          
+            <div class="col l3 m3 s8">
+              <div class="md-floatleft">  
+                <img on-error="assets/images/defaulterror/default-image.jpg" ng-src="{{list.friend.profilePic}}"  class="md-viewhistroryimg">
+              </div>
+              <div  class="md-floatleft">
+                <p class="md-viewhstyname">{{list.friend.name}}</p>
+              </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                  <p class="md-viewhstyname">{{list.recordCount}} Records</p>
+            </div>
+            </div>
+               <div ng-if="requestType=='searchby'">
+                <div class="col l3 m3 s8">
+              <div class="md-floatleft">  
+                <img on-error="assets/images/defaulterror/default-image.jpg" ng-src="{{list.profilePic}}"  class="md-viewhistroryimg">
+              </div>
+              <div  class="md-floatleft">
+                <p class="md-viewhstyname">{{list.name}}</p>
+              </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                  <p class="md-viewhstyname">{{list.recordCount}} Records</p>
+            </div>
+            <div>
+              <button class="waves-effect waves-light btn md-reqbtn greenaccpt right" ng-click=
+              "sendreq(list._id)">Send Request</button>
+            </div>
+            </div>
+            <span ng-hide="requestType=='searchby'" class="waves-effect waves-light btn md-reqbtn greenaccpt right" ng-click="" confirmed-click="deletereq(list._id,$index)" ng-confirm-click="You want to delete  Request?"> Delete</span>
+       </div>
+
+           <!--  <div class="col l3 m3 s8 center">
+                <div class="md-floatleft">  
+                    <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg">
+                </div>
+                <div  class="md-floatleft">
+                  <p class="md-viewhstynameother">Kumar</p>
+                  <p class="md-sharedview">Shared</p>
+                </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                 <p class="md-viewhstyname">2 hrs ago</p>
+            </div> -->
+       </div>
+                 <div class="col s12 l12 m12 ">
+
+    <!--     <uib-pagination ng-model="currentPage" ng-click="filterSearch(currentPage)"  
+              total-items="totalItems"
+              max-size="maxSize"
+              boundary-links="true" class="pagination-small"
+              items-per-page="itemsPerPage">
+            </uib-pagination> -->
+
+        </div>
+   <!--      <div class="col l12 m12 s12 md-bordertopbtm">
+            <div class="col l3 m3 s8">
+              <div class="md-floatleft">  
+                <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg">
+              </div>
+              <div  class="md-floatleft">
+                <p class="md-viewhstyname">Amul</p>
+              </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                  <p class="md-viewhstyname">4 Records</p>
+            </div>
+            <div class="col l3 m3 s8 center">
+                <div class="md-floatleft">  
+                    <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg">
+                </div>
+                <div  class="md-floatleft">
+                  <p class="md-viewhstynameother">Ajay</p>
+                  <p class="md-sharedview">Shared with me</p>
+                </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                 <p class="md-viewhstyname">2 hrs ago</p>
+            </div>
+       </div> -->
+<!--        <div class="col l12 m12 s12 md-bordertopbtm">
+            <div class="col l3 m3 s8">
+              <div class="md-floatleft">  
+                <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg">
+              </div>
+              <div  class="md-floatleft">
+                <p class="md-viewhstyname">Sunil</p>
+              </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                  <p class="md-viewhstyname">--</p>
+            </div>
+            <div class="col l3 m3 s8 center">
+                <div class="md-floatleft">  
+                    <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg">
+                </div>
+                <div  class="md-floatleft">
+                  <p class="md-viewhstynameother">Request sent to Annu</p>
+                  <p class="md-sharedview pending">Pending</p>
+                </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                 <p class="md-viewhstyname">3 hrs ago</p>
+            </div>
+       </div> -->
+<!--        <div class="col l12 m12 s12 md-bordertopbtm">
+            <div class="col l3 m3 s8">
+              <div class="md-floatleft">  
+                <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg">
+              </div>
+              <div  class="md-floatleft">
+                <p class="md-viewhstyname">Sunil</p>
+              </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                  <p class="md-viewhstyname">--</p>
+            </div>
+            <div class="col l3 m3 s8 center">
+                <div class="md-floatleft">  
+                    <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg">
+                </div>
+                <div  class="md-floatleft">
+                  <p class="md-viewhstynameother">Request sent to Rahul</p>
+                  <p class="md-sharedview accept">Accepted</p>
+                </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                 <p class="md-viewhstyname">3 hrs ago</p>
+            </div>
+       </div> -->
+ <!--       <div class="col l12 m12 s12 md-bordertopbtm">
+            <div class="col l3 m3 s12">
+              <div class="md-floatleft">  
+                <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg">
+              </div>
+              <div  class="md-floatleft">
+                <p class="md-viewhstynameother">Venkei</p>
+                  <p class="md-sharedview pending">Pending</p>
+              </div>
+            </div>
+            <div class="col l3 m3 s12 center">
+              <div class="mt16">
+                  <a class="waves-effect waves-light btn md-reqbtn greenaccpt">Accept</a>
+                  <a class="waves-effect waves-light btn md-reqbtn reddel">Delete Request</a>
+              </div>    
+            </div>
+            <div class="col l3 m3 s12 center">
+            </div>
+            <div class="col l3 m3 s12 center">
+                 <p class="md-viewhstyname">3 hrs ago</p>
+            </div>
+       </div> -->
+       <!-- ****************Old Design Code************************ -->
+       <!-- <div class="col l12 m12 s12 md-bordertopbtm">
+            <div class="col l3 m3 s12">
+              <div class="md-floatleft">  
+                <img src="assets/images/defaulterror/default-image.jpg" class="md-viewhistroryimg"></div>
+              <div  class="md-floatleft">
+                <p class="md-viewhstyname">Name goes here</p>
+              </div>
+            </div>
+            <div class="col l3 m3 s4 center">
+                  <p class="md-viewhstyname">8 Records</p>
+            </div>
+            <div class="col l3 m3 s4 center">
+                 <p class="md-viewhstyname md-pnding-red">--</p>
+            </div>
+            <div class="col l3 m3 s4 center">
+                 <p class="md-viewhstyname">4 hrs ago</p>
+            </div>
+       </div> -->
+       </div>
+	</div>
+</section>
+
+<!--*********PROFILE SECTION************-->
+<footer></footer>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('ul.tabs').tabs();
+     $('.fixed-action-btn').openFAB();
+  $('.fixed-action-btn').closeFAB(); 
+
+  });
+      
+</script>

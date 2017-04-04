@@ -1,0 +1,173 @@
+
+<!--HEADER DIRECTIVE-->
+<homenav></homenav>
+<!--*********SUB MENU************-->
+<submenu></submenu>
+<!--*********PROFILE SECTION************-->
+<profileinfo userdetail="userinfo" relid="relationID"></profileinfo>
+
+<section>
+	<div class="container md-timelinecontainer" >
+		<div class="row">
+    <!-- {{userinfo._id}} -->
+		<div class="col s12 l10 m10 md-box" class="owl-carousel" data-options="{items:5,pagination: false,navigation: true}" id="owl-demo">
+                   <div class="item" ng-repeat="years in userinfo.recordYears | orderBy: recordYears"  owl-carousel>
+                       <a class="cursorpntr"  ng-class="{'md-form5active':years==yeartab}" ng-click="viewhistory(years,userinfo._id)"><div class=" ">{{years}}</div></a></div>
+               </div>
+<!-- 		    <div class="col s12 l8 m8" ng-if="userinfo.recordCount>0"> 
+		      <ul class="tabs " >
+                       <li class="tab col s2 l2 m2" ng-repeat="years in userinfo.recordYears | orderBy: recordYears"><a class="active"  ng-click="viewhistory(years)">{{years}}</a></li>
+		  
+		      </ul>
+		    </div> -->
+	     	<div class=" col s2" ng-if="relationID && historydata.length>0">
+  				<a class="waves-effect waves-light btn md-prfviewbtn md-mt5"  material-modal data-modaltarget="transferModal" modalstatus="modstatus" ng-click="openmodal()">Transfer Records</a>
+  			</div>
+  			 <div ng-if="historydata.length>0" class="col s12">
+  			 	<section>
+	<div class="container md-timelinecontainer">
+    <div class="row">
+    <div class="col l12 m12 s12">
+    	<ul class="timeline">
+    	 <!-- <div class="md-monthname">Month Name</div> -->
+         <!-- <li ng-repeat="history in historydata" data-content="{{history.createdTimestamp | date :'MMM d'}}"> -->
+         <view-record history="historydata" ></view-record>  
+         <!-- </li> -->
+                 
+
+        </ul>
+    </div>
+    </div>
+	</div>
+</section>
+			 </div>			    
+  		</div>	
+	  </div>
+	</div>
+</section>
+<menubar ></menubar>
+<!--*********PROFILE SECTION************-->
+<footer></footer>
+<!-- Modal Menubar  Structure -->
+  <div class="creatiseModal md-createnwentry" id="transferModal">
+    <div class="modal-content md-modalcnt">
+      <div class="md-cnthading">
+        <p class="modal-heading">Transfer Record</p>
+      </div>
+      <div class="md-cloasedbtn">
+         <div material-modal-close ><i class="fa fa-times" aria-hidden="true"></i></div>
+      </div>
+     <div class="row">
+       <div class="col l12 m12 s12">
+             <div class="input-field col s8 m8 l8">
+            <input name="email" type="text" ng-model="email" />
+             <label for="email">Email-ID</label>
+             </div>
+            
+              <div class="col l6 m6 s12">
+                  <a material-modal-close class="waves-effect waves-light btn md-reqbtn greenaccpt">Cancel</a>
+              </div>
+              <div class="col l6 m6 s12">
+                  <a class="waves-effect waves-light btn md-reqbtn greenaccpt right" ng-click="transferrecord(email,userinfo._id)">Transfer</a>
+              </div>
+       </div>
+    </div>
+  </div>
+ </div>  
+
+     <div class="creatiseModal md-createnwentry" id="viewfirstModal">
+                    <div class="modal-content md-modalcnt">
+                      <div class="md-cnthading">
+                        <p class="modal-heading">Edit Record</p>
+                      </div>
+                      <div class="md-cnthading">
+                       <!--  <span ng-click="deleterecord(recoddetails._id,indexval)"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+                         <!-- <span  confirmed-click="deleterecord(recoddetails._id,indexval)" ng-confirm-click="You want to delete Record?"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+                      </div>
+                      <div class="md-cloasedbtn">
+                         <div material-modal-close ><i class="fa fa-times" aria-hidden="true"></i></div>
+                      </div>
+                     <div class="row">
+                       <div class="col l12 m12 s12">
+                             <div class="col l2 m2 s2">
+                               <div  class="btn-floating md-addrecordmt20 checkup-icon center"><img ng-src={{recoddetails.icon}} class="md-iconimg"></div>
+                            </div>
+                             <div class="input-field col s8 m8 l8">
+                               <input id="discription" type="text" ng-model="recoddetails.description" class="validate md-input">
+                                <label for="discription">Description</label>
+                             </div>
+                             <div class="input-field col s8 m8 l8 offset-m2 offset-l2 ">
+                               <input id="date" type="text" ng-model="recoddetails.createdTimestamp" formatted-date format="medium">
+                                <label for="date">Date</label>
+                             </div>
+                             <div class="row">
+                             <div class="col s12 record_img_holder">
+                                <div class="record_img_edit" ng-repeat="img in recoddetails.reports">
+                               <img ng-src="{{img.image}}" class="md-addreportmenu">
+                               <!--  <input input-checkbox type="checkbox"  id="{{img._id}}" class="report_img_del" value="{{img._id}}" ng-click="clickablefun(img._id)"> -->
+                               <input type='checkbox' value="{{img._id}}" check-list='checked_reptimg' class="report_img_del"> <br />
+                                <!-- <span  confirmed-click="deletereport(recoddetails._id,img._id,indexval)" ng-confirm-click="You want to delete Report?"><i class="fa fa-trash-o" aria-hidden="true"></i></span> -->
+                             </div>
+                             <!-- <div>The following fruits are checked: {{checked_reptimg | json}}</div> -->
+                              <span ng-if="checked_reptimg.length!=0" class="waves-effect waves-light btn md-reqbtn greenaccpt right" ng-click="deletereport(recoddetails._id,checked_reptimg,indexval)">Delete Report</span>
+                             </div>
+                               
+                             </div>
+                            
+                              <div class="col l6 m6 s12">
+                              <label>Add report</label>
+                               <input type="file"  filemul-upload my-upload multiple="">
+                                 <!--  <a class="waves-effect waves-light btn md-reqbtn greenaccpt">Add another Report</a> -->
+                              </div>
+                              <div class="col l6 m6 s12">
+                              <a  confirmed-click="deleterecord(recoddetails._id,indexval)" ng-confirm-click="You want to delete Record?" class="waves-effect waves-light btn md-reqbtn greenaccpt right" style="margin:0px 5px;">Delete</a>
+                                  <a ng-click="updaterecord(recoddetails,indexval,$index)" class="waves-effect waves-light btn md-reqbtn greenaccpt right">Update</a>
+                              </div>
+                       </div>
+                    </div>
+                  </div>
+                 </div>
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('ul.tabs').tabs();
+  });
+
+     $("#date").datepicker({
+        dateFormat: 'yy-mm-dd',
+        maxDate: new Date(),
+        defaultDate: new Date()
+    });
+</script>
+<style type="text/css">
+    
+.team-member {
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 35px;
+    text-align:center;
+}
+
+.team-member .details {
+    text-align: justify;
+    font-size: 16px;
+    line-height: 20px;
+    position: absolute;
+    padding: 15px;
+    top: -250px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: all 500ms;
+    transition: all 500ms;
+}
+
+.team-member:hover .details {
+
+    top: 0;
+
+    background: rgba(255,255,255,0.5);
+
+    color: black;
+}
+</style>
